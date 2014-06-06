@@ -251,6 +251,32 @@ We ran the QPFS algorithm on the data sets, and selected all the features that w
 
 \subsection{Best Predictor Operator for Seizure Prediction}
 
+\begin{figure}[htbp]
+\centering
+\ifthenelse{\putimage = 1}{
+\subfigure[$n \times (n+1)$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{DAK_3_nbyn+1.eps}}}
+\subfigure[$n \times (n+1)$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{OB_1_nbyn+1.eps}}}
+\subfigure[$n \times 10$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{DAK_3_nby10.eps}}}
+\subfigure[$n \times 10$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{OB_1_nby10.eps}}}
+}
+\hfill
+\caption{Comparison of the $n \times 10$ and $n \times (n+1)$ forecast operators.  The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}
+\label{fig:forecast_operator}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\ifthenelse{\putimage = 1}{
+\subfigure[AR(1) model]{\includegraphics[width=0.45\columnwidth]{\FigDir{FZE_4_ar.eps}}}
+\subfigure[AR(1) model]{\includegraphics[width=0.45\columnwidth]{\FigDir{IP_1_ar.eps}}}
+\subfigure[AR(1) model with transfer learning]{\includegraphics[width=0.45\columnwidth]{\FigDir{FZE_4_tl.eps}}}
+\subfigure[AR(1) model with transfer learning]{\includegraphics[width=0.45\columnwidth]{\FigDir{IP_1_tl.eps}}}
+}
+\hfill
+\caption{Comparison of the AR(1) model with the AR(1) model enhanced by transfer learning.  The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}
+\label{fig:ar_vs_transfer}
+\end{figure}
+
 \subsection{Autoregression vs transfer learning}
 
 \section{Conclusions and Future Work} \label{sec:discuss}
