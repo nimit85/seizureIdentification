@@ -10,9 +10,8 @@
 \BOOKMARK [3][-]{subsubsection.2.6.2}{Measuring Predictive Importance}{subsection.2.6}% 10
 \BOOKMARK [3][-]{subsubsection.2.6.3}{Optimizing Redundancy and Predictive Importance}{subsection.2.6}% 11
 \BOOKMARK [2][-]{subsection.2.7}{Designing Ictal Discriminators}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.8}{Seizure Prediction Algorithm}{section.2}% 13
-\BOOKMARK [1][-]{section.3}{Results}{}% 14
-\BOOKMARK [2][-]{subsection.3.1}{Quadratic Programming Feature Selection Results}{section.3}% 15
-\BOOKMARK [2][-]{subsection.3.2}{Best Predictor Operator for Seizure Prediction}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.3}{Autoregression vs transfer learning}{section.3}% 17
-\BOOKMARK [1][-]{section.4}{Conclusions and Future Work}{}% 18
+\BOOKMARK [1][-]{section.3}{Results}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{Quadratic Programming Feature Selection Results}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{Best Predictor Operator for Seizure Prediction}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{Autoregression vs transfer learning}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Conclusions and Future Work}{}% 17

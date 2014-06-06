@@ -9,7 +9,7 @@
 \BOOKMARK [3][-]{subsubsection.2.6.1}{Measuring Redundancy}{subsection.2.6}% 9
 \BOOKMARK [3][-]{subsubsection.2.6.2}{Measuring Predictive Importance}{subsection.2.6}% 10
 \BOOKMARK [3][-]{subsubsection.2.6.3}{Optimizing Redundancy and Predictive Importance}{subsection.2.6}% 11
-\BOOKMARK [2][-]{subsection.2.7}{Designing Ictal Discriminators}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.7}{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly}{section.2}% 12
 \BOOKMARK [2][-]{subsection.2.8}{Seizure Prediction Algorithm}{section.2}% 13
 \BOOKMARK [1][-]{section.3}{Results}{}% 14
 \BOOKMARK [2][-]{subsection.3.1}{Quadratic Programming Feature Selection Results}{section.3}% 15

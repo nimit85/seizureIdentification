@@ -252,8 +252,8 @@ We solve the resulting optimization problem:
 \[ x^* = \arg \min q(x); \quad s.t. x \geq 0, \quad \sum_i x_i = 1 \]
 to obtain an importance-distribution over the features.
 
-\subsection{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly} \label{sec:seizure_predict_method}
-In order to distinguish seizure-activity from regular activity, we obtain a parameter which maximally distinguishes between the two. To this end, we define a discriminator as follows.
+\subsection{Designing Ictal Discriminators} \label{sec:seizure_predict_method}
+In order to separate ictal activity from regular activity, we obtain a parameter which maximally distinguishes between the two. To this end, we define a discriminator as follows.
 
 \begin{definition}
 Let $Y$ be a domain with a region of interest, $R \subset X$, and let $f: Y \to \rl$ be a function. We call $f$ a $\d$-discriminator of $R$ from $X$, iff
@@ -262,10 +262,14 @@ where $\mean{f(S)}$ is the average of the function restricted to $S$.
 We call $f$ an $(\rho, \delta)$-discriminator of $R$ if $f$ is a $\delta$-discriminator of an $\rho$-expansion of $R$ in $X$.
 \end{definition}
 
+<<<<<<< HEAD
 For predicting seizure, we use this notion of discrimination to construct a forecast operator, $\Psi$, for the feature vector, $d_t$, at time $t$ of recorded brain activity, with the property that the prediction errors, $\e_t$, of the forecast form a $\delta$-discriminator of the ictal period for an appreciably large $\delta$. We achieve this by designing a forecast operator specifically to predict regular function with high fidelity, at the cost of predicting ictal activity accurately.  
 
 \subsection{Seizure Prediction Algorithm}
 We use a sliding window of size $30$ to average the errors, and remove small irregularities arising from the inherent noise in the signal.  To predict the onset of the seizure, we use a forward-looking window of size $5$ and compute the difference in means of the sliding window and this forward-looking window.  If this difference is greater than a factor of four as compared to the standard deviation of the errors in the sliding window, we consider that epoch as a candidate for prediction of seizure.  We continue predicting further points with the added stipulation that the error must be higher than the errors at all previously detected points.  
+=======
+For predicting seizure, we use this notion of discrimination to construct a forecast operator, $\Psi$, for the feature vector, $d_t$, at time $t$ of recorded brain activity, with the property that the prediction errors, $\e_t$, of the forecast form a $\delta$-discriminator of the ictal period for an appreciably large $\delta$. We achieve this by designing a forecast operator specifically to predict regular function with high fidelity, at the cost of predicting ictal activity accurately. Firstly, since approximately $97-98 \%$ of the data is non-ictal activity, AR(1) preferentially learns non-ictal activity over ictal activity, and the predictive importance vector may be expected to weight features that discriminate minimally between these activities. For the same reason that ictal activity resides in a small region of time, we may expect the correlation matrix to be minimally perturbed by ictal activity, resulting in the features selected by QPFS being good predictors preferential to normal function. We exploit this preference to predict normal function by restricting the predictor, $\Psi$, to just these features. Suppose that the features chosen in accordance with [QPFS] are $\{ c_j \}_1 ^k \subset \{ z_i  \}_1 ^n$. We restrict the predictor, $\Psi \in \rls{n, n+1}$, to just these selected features to obtain $\hat{\Psi} \in \rls{n, k+1}$, the prediction using which is designed to bias \emph{against} good prediction of ictal activity, and therefore incur larger errors therein. We refer the reader to the results for the discrimination parameters, $\rho, \delta$, obtained via this manner.
+>>>>>>> 8484c397488fe701dbaf93c33471b91ef21c4915
 
 \section{Results} \label{sec:results}
 We present results for the Quadratic Programming Feature Selection algorithm, determining the best forecast operator, and a comparison of the performance of our seizure prediction algorithm on basic autoregression vs. with the addition of transfer learning.
