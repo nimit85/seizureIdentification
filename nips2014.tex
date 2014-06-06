@@ -7,6 +7,18 @@
 \usepackage[nospace,noadjust]{cite}
 %\usepackage{setspace} 
 
+% Theorem Styles
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+% Definition Styles
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
 \renewcommand{\topfraction}{0.95}
 \renewcommand{\textfraction}{0.05}
 \newcommand{\putimage}{1}
@@ -21,6 +33,8 @@
 \newcommand{\Prb}[1]{\mathbb{P} \left[ #1 \right]}
 %\newcommand{\norm}[1]{\left| \left| #1 \right| \right|}
 \newcommand{\mean}[1]{\left \langle #1 \right \rangle}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
 \newcommand{\rl}{\mathbb{R}}
 \newcommand{\rls}[1]{\mathbb{R}^{#1}}
 \DeclareMathOperator{\var}{Var}
@@ -241,7 +255,16 @@ We solve the resulting optimization problem:
 to obtain an importance-distribution over the features.
 
 \subsection{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly} \label{sec:seizure_predict_method}
-\textbf{******NIVAS PLACE-HOLDER FOR LEARNING ON REGULAR SIGNAL }
+In order to distinguish seizure-activity from regular activity, it would be useful to obtain a parameter which maximally distinguishes between the two. To this end, we define a discriminator as follows.
+
+\begin{definition}
+Let $Y$ be a domain with a region of interest, $R \subset X$, and let $f: Y \to \rl$ be a function. We call $f$ a $\d$-discriminator of $R$ from $X$, iff
+\[ \Delta(f, R) = \frac{\abs{\mean{f(R)} - \mean{f(X \setminus R)}}}{\mean{f(X)}} \geq \d, \]
+where $\mean{f(S)}$ is the average of the function restricted to $S$.
+We call $f$ an $(\rho, \delta)$-discriminator of $R$ if $f$ is a $\delta$-discriminator of an $\rho$-expansion of $R$ in $X$.
+\end{definition}
+
+For predicting seizure, we use this notion of discrimination to construct a forecast operator, $\Psi^*$, for the feature vector, $d_t$, at time $t$ of recorded brain activity, with the property that the prediction errors, $\e_t$, of the forecast form a $\delta$-discriminator of the ictal period for an appreciably large $\delta$. We achieve this by designing a forecast operator specifically to predict regular function with high fidelity. 
 
 \section{Results} \label{sec:results}
 We present results for the Quadratic Programming Feature Selection algorithm, determining the best forecast operator, and a comparison of the performance of our seizure prediction algorithm on basic autoregression vs. with the addition of transfer learning.
