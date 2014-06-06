@@ -67,26 +67,10 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}Measuring Predictive Importance}{5}{subsubsection.2.6.2}}
 \citation{quadprog_featsel}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.3}Optimizing Redundancy and Predictive Importance}{6}{subsubsection.2.6.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly}{6}{subsection.2.7}}
-\newlabel{sec:seizure_predict_method}{{2.7}{6}{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly\relax }{subsection.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Designing Ictal Discriminators}{6}{subsection.2.7}}
+\newlabel{sec:seizure_predict_method}{{2.7}{6}{Designing Ictal Discriminators\relax }{subsection.2.7}{}}
 \bibstyle{abbrv}
 \bibdata{./bibliography/epilepsy}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{7}{section.3}}
-\newlabel{sec:results}{{3}{7}{Results\relax }{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Quadratic Programming Feature Selection Results}{7}{subsection.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Best Predictor Operator for Seizure Prediction}{7}{subsection.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of the $n \times 10$ and $n \times (n+1)$ forecast operators. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}}{7}{figure.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$n \times (n+1)$ Forecast Operator}}}{7}{figure.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$n \times (n+1)$ Forecast Operator}}}{7}{figure.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$n \times 10$ Forecast Operator}}}{7}{figure.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$n \times 10$ Forecast Operator}}}{7}{figure.2}}
-\newlabel{fig:forecast_operator}{{2}{7}{Comparison of the $n \times 10$ and $n \times (n+1)$ forecast operators. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of the AR(1) model with the AR(1) model enhanced by transfer learning. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}}{8}{figure.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {AR(1) model}}}{8}{figure.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {AR(1) model}}}{8}{figure.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {AR(1) model with transfer learning}}}{8}{figure.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {AR(1) model with transfer learning}}}{8}{figure.3}}
-\newlabel{fig:ar_vs_transfer}{{3}{8}{Comparison of the AR(1) model with the AR(1) model enhanced by transfer learning. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red}{figure.3}{}}
 \bibcite{acar_seizure_localization}{1}
 \bibcite{anderson_offline_ar}{2}
 \bibcite{bilgin_multiscale}{3}
@@ -96,6 +80,25 @@
 \bibcite{seizure_def}{7}
 \bibcite{fisher_impact_epilepsy}{8}
 \bibcite{hazarika_wavelet}{9}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{7}{section.3}}
+\newlabel{sec:results}{{3}{7}{Results\relax }{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Quadratic Programming Feature Selection Results}{7}{subsection.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Best Predictor Operator for Seizure Prediction}{7}{subsection.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Autoregression vs transfer learning}{7}{subsection.3.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusions and Future Work}{7}{section.4}}
+\newlabel{sec:discuss}{{4}{7}{Conclusions and Future Work\relax }{section.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of the $n \times 10$ and $n \times (n+1)$ forecast operators. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}}{8}{figure.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$n \times (n+1)$ Forecast Operator}}}{8}{figure.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$n \times (n+1)$ Forecast Operator}}}{8}{figure.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$n \times 10$ Forecast Operator}}}{8}{figure.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$n \times 10$ Forecast Operator}}}{8}{figure.2}}
+\newlabel{fig:forecast_operator}{{2}{8}{Comparison of the $n \times 10$ and $n \times (n+1)$ forecast operators. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of the AR(1) model with the AR(1) model enhanced by transfer learning. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}}{9}{figure.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {AR(1) model}}}{9}{figure.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {AR(1) model}}}{9}{figure.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {AR(1) model with transfer learning}}}{9}{figure.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {AR(1) model with transfer learning}}}{9}{figure.3}}
+\newlabel{fig:ar_vs_transfer}{{3}{9}{Comparison of the AR(1) model with the AR(1) model enhanced by transfer learning. The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red}{figure.3}{}}
 \bibcite{jasper_1020}{10}
 \bibcite{kramer2008emergent}{11}
 \bibcite{chisci_real_time}{12}
@@ -107,9 +110,6 @@
 \bibcite{lytton_model_epilepsy}{18}
 \bibcite{mahyari_tensor_brain}{19}
 \bibcite{mirowski_seizure_prediction_classification}{20}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Autoregression vs transfer learning}{9}{subsection.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusions and Future Work}{9}{section.4}}
-\newlabel{sec:discuss}{{4}{9}{Conclusions and Future Work\relax }{section.4}{}}
 \bibcite{mormann_seizure_prediction}{21}
 \bibcite{mormann2005predictability}{22}
 \bibcite{murali_wavelet}{23}
