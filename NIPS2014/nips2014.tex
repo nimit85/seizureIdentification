@@ -163,7 +163,6 @@ In subsequent text, we refer to the feature matrix as $D$.  A complete list of t
 \begin{table}[htb]
 \caption{Description of EEG global graph features.}\label{tab:features}
 \renewcommand{\arraystretch}{0.8} % Increase the height
-
 \begin{tabular}{lll}
 Index&Feature Name& Description\\
 \hline
@@ -263,7 +262,10 @@ where $\mean{f(S)}$ is the average of the function restricted to $S$.
 We call $f$ an $(\rho, \delta)$-discriminator of $R$ if $f$ is a $\delta$-discriminator of an $\rho$-expansion of $R$ in $X$.
 \end{definition}
 
-For predicting seizure, we use this notion of discrimination to construct a forecast operator, $\Psi$, for the feature vector, $d_t$, at time $t$ of recorded brain activity, with the property that the prediction errors, $\e_t$, of the forecast form a $\delta$-discriminator of the ictal period for an appreciably large $\delta$. We achieve this by designing a forecast operator specifically to predict regular function with high fidelity, at the cost of predicting ictal activity accurately. 
+For predicting seizure, we use this notion of discrimination to construct a forecast operator, $\Psi$, for the feature vector, $d_t$, at time $t$ of recorded brain activity, with the property that the prediction errors, $\e_t$, of the forecast form a $\delta$-discriminator of the ictal period for an appreciably large $\delta$. We achieve this by designing a forecast operator specifically to predict regular function with high fidelity, at the cost of predicting ictal activity accurately.  
+
+\subsection{Seizure Prediction Algorithm}
+We use a sliding window of size $30$ to average the errors, and remove small irregularities arising from the inherent noise in the signal.  To predict the onset of the seizure, we use a forward-looking window of size $5$ and compute the difference in means of the sliding window and this forward-looking window.  If this difference is greater than a factor of four as compared to the standard deviation of the errors in the sliding window, we consider that epoch as a candidate for prediction of seizure.  We continue predicting further points with the added stipulation that the error must be higher than the errors at all previously detected points.  
 
 \section{Results} \label{sec:results}
 We present results for the Quadratic Programming Feature Selection algorithm, determining the best forecast operator, and a comparison of the performance of our seizure prediction algorithm on basic autoregression vs. with the addition of transfer learning.
@@ -300,12 +302,16 @@ We ran the QPFS algorithm on the data sets, and selected all the features that w
 \end{figure}
 
 \subsection{Autoregression vs transfer learning}
+One of the primary objectives of this study was to improve the basic autoregressive model by the addition of transfer learning.  This can be seen in Fig.~\ref{fig:ar_vs_transfer}.  In Figures~\ref{fig:ar_vs_transfer}(c and d), the error is much higher near and within the seizure region as compared to the non-seizure regions, which allows a closer seizure prediction with lesser probability of a false positive.  The median time of detection of the seizure for the AR$(1)$ model is $5.38$ minutes prior to the seizure, whereas the median time of detection of the seizure for the AR$(1)$ model enhanced by transfer learning is $3.25$ minutes prior to the seizure.  This metric validates our claim that transfer learning improves the basic autoregressive process by producing fewer false positive detections.
 
 \section{Conclusions and Future Work} \label{sec:discuss}
-Mention: advanced noise removal
-transfer learning based on similarity between patients
+In this study, we outline a seizure prediction algorithm for EEG epileptic seizure data by constructing an autoregressive model improved by the addition of transfer learning on features extracted by building synchronization graphs on the low-rank approximation of the EEG signal.  
 
+In the future, we would like to enhance our current noise-removal method by applying techniques such as Independent Component Analysis (ICA).  We believe that ICA might be able to discriminate the seizure signal from the normal signal, thus allowing our model to build a better description of normal signal, and make worse mistakes on the seizure data.  We would also like to develop a similarity measure between patients to improve transfer learning.
+
+
+{\small
 \bibliographystyle{abbrv}
 \bibliography{\BibDir/epilepsy}
-
+}
 \end{document}
