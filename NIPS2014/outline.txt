@@ -1,0 +1,19 @@
+Abstract - Nimit/Nivas/Yener
+
+Introduction and Related Work - Nimit/Yener
+
+Methodology:
+1) EEG Data set - Nimit
+2) Noise removal (initial data processing) - Nimit
+3) Construction of EEG synchronization graphs - Nimit
+4) Feature Extraction from EEG synchronization graphs - Nimit, 
+change point detection - Nivas 
+5) Transfer learning (Autoregressive parameters for prediction) - Nimit
+6) Error analysis - Nivas
+
+Results:
+Seizure Prediction using Error Analysis - Nimit/Nivas
+Predictive value of features - some score/rating (cosine similarity)
+Local features - which electrode?
+
+Discussion and Conclusion: Nimit

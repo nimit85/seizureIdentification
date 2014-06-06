@@ -1,0 +1,192 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips14submit_e,times}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath,epsfig,latexsym,amssymb,subfigure,ifthen,multirow}
+\usepackage{graphicx}
+\usepackage[nospace,noadjust]{cite}
+%\usepackage{setspace} 
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\newcommand{\putimage}{1}
+\newcommand{\FigDir}{./figures/}
+\newcommand{\BibDir}{./bibliography}
+\newcommand{\vphi}{\mbox{\boldmath $\phi$\unboldmath}}
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+ \input{latexmacros}
+
+\title{Seizure Prediction by Graph Mining and Transfer Learning}
+  
+% Insert Author names, affiliations and corresponding author email.
+\author{
+}
+
+\begin{document}
+
+\maketitle
+
+% Please keep the abstract between 250 and 300 words
+\begin{abstract}
+Abstract goes here.  
+\end{abstract}
+
+\section{Introduction}
+Epilepsy is one of the most common disorders of the central nervous system characterized by recurring seizures.  An epileptic seizure is described by abnormally excessive or synchronous neuronal activity in the brain~\cite{seizure_def}.  Epilepsy patients show no pathological signs of the disease during inter-seizure periods, however, the uncertainty with regards to the onset of the next seizure deeply affects the lives of the patients~\cite{fisher_impact_epilepsy}.  
+
+In~\cite{mormann_seizure_prediction} the authors posed the question whether characteristic features can be extracted from the continuous EEG signal that are predictive of an impending seizure.  If it were possible to reliably predict seizure occurrence then preventive clinical strategies would be replaced by patient specific proactive therapy such as reseting brain by electrical or other stimulation.  While clinical studies show early indicators for a pre-seizure state including increased cerebral blood flow, heart rate change, the research in seizure prediction is still not reliable for clinical use.
+
+In general approaches to seizure prediction problem share several common steps including processing of multichannel EEG signals (i) discretize the time series into sliding windows with a constant number and overlapping epochs (ii) to extract sub-frequencies, to analyze the signal in frequency and/or time domain using (e.g., using wavelength transformation~\cite{acar_seizure_localization}), (iii) extract features either directly from the signal or from transformations.  These featues can be univariate computed on each EEG channel separately or bivariate computed  between two or more EEG channels they can be linear or nonlinear (e.g.,~\cite{mormann2005predictability}.  A list of features used in characterization of epileptic seizure dynamics can be found in recent studies~\cite{paivinen2005epileptic,mormann2005predictability,van2005detecting}.
+
+A particular bivariate EEG feature, which captures  brainwave synchronization patterns, is shown to be an important one to differentiate interictal, preictal and ictal states~\cite{vanquyen_ictogenesis,levan_preictal}.  In particular, it is  suggested that interictal period is characterized by moderate synchronization at large frequency bands while  preictal period is marked by a decrease in the beta range synchronization between the epileptic focus and other brain areas, followed by a subsequent hypersynchronization at the seizure onset~\cite{mirowski_seizure_prediction_classification}.
+
+Recently there has been increasing focus in analyzing EEG recordings by building a {\em synchronization graph} that enable characterization of the pairwise correlations between electrodes using graph theoretical features over time~\cite{bullmore2009complex,stam2012organization}.  In the spatio-temporal EEG  graphs, {\em nodes}~(vertices) represent the EEG channels and the {\em edges}~(links) represent the level of  neuronal synchronization between the different regions of the brain.  This approach has been exploited in the analysis of various neuropsychiatric diseases including schizophrenia and autism, dementia, and epilepsy~\cite{stam2012organization}.  Within epilepsy research,  evolution  of certain  graph  features over time revealed better understanding of the interactions  of the brain regions and the seizures.  For instance, Schindler et. al. analyzed the change in path lengths and clustering coefficients to highlight the evolution of seizures on epileptic patients~\cite{schindler2008evolving}, Kramer et. al.  considered  the  evolution  of  local graph features including betweenness centrality to explain the coupling of brain signals at seizure onset~\cite{kramer2008emergent}, and Douw et. al. recently showed epilepsy in glioma patients was attributed to the theta band activity in the brain~\cite{douw2010epilepsy}.  In~\cite{mahyari_tensor_brain} authors independently suggest a similar approach that combines tensor decompositions with graph theory.
+In  this paper, we continue studying synchronization graphs  and introduce new features as the early indicators of a seizure onset.
+
+The organization of the paper is as follows: in Section~\ref{sec:method}, we describe the epileptic EEG dataset~\ref{sec:eeg_data}, methodology to construct EEG synchronization graphs~\ref{sec:graph_construct}, and the computation of global and local features on these graphs~\ref{sec:graph_feats}.  In Section~\ref{sec:seizure_predict_method}, we describe the seizure prediction method.  in Section~\ref{sec:results} we present results for seizure prediction.  Finally, we provide an overview, discuss the results, and list extensions to this study, in Section~\ref{sec:discuss}.
+
+\section{Methodology} \label{sec:method}
+
+\subsection{Epileptic EEG Data Set} \label{sec:eeg_data}
+Our dataset consists of scalp EEG recordings of $26$ seizures from $11$ patients.  All the patients were evaluated with scalp video-EEG monitoring in the international 10-20 system (as described in~\cite{jasper_1020}), magnetic resonance imaging (MRI), fMRI for language localization, and position emission tomography (PET).  All the patients had {\em Hippocampal Sclerosis} (HS) except one patient (IY) with {\em Cortical Dysplasia} (CD). After selective amygdalohippocampectomy, all the patients were seizure free.  The patient information is provided in Table~\ref{tab:patient_types}.  For $4$ patients, the seizure would onset from the left, whereas for $7$ patients the seizure would onset from the right. 
+
+One patient has one $30$ minute recording, two patients have two $30$ min recordings, one patient has three $30$ min recordings, one 
+patient has single $60$ minute recording, three patients have two $60$ minute recordings, two patients have three $60$ minute recordings, and one patient has five $60$ minute recordings.  The recordings include sufficient \mbox{pre-ictal} and \mbox{post-ictal} periods for the  analysis. Two of the electrodes ($A_1$  and $A_2$) were unused and  $C_z$ electrode was used for referential montage that yielded \mbox{18-channel} EEG
+recordings.  A team of doctors diagnosed the initiation and the termination of each seizure and reported these periods as the ground truth for our
+analysis.  An example of such a recording can be found in Fig.2 in~\cite{smith_eegrecording}.  Seizures were $73.81$ seconds long on average and their standard deviation was $52.42$ seconds.
+\begin{table}[htdp]
+\caption{Patient Types. Almost all the patients (except one patient) exhibited hippocampal sclerosis (HS).  
+There are two types of lateralizations in HS: left (L) and right (R).  One patient (IY) 
+exhibited cortical dysplasia (CD).}
+\begin{center}
+\begin{tabular}{ccc}
+	Patient & Pathology & Lateralization\\
+	\hline \hline
+	IY&CD&R\\
+	OB&HS&R\\
+	BMI&HS&R\\
+	FZE&HS&R\\
+	GSE&HS&L\\
+	IP&HS&L\\
+	MSO	&HS&L\\	
+	ABA&HS&L\\
+	DAK&HS&L\\
+	NT&HS&L\\
+	SUL&HS&L\\
+\end{tabular}
+\end{center}
+\label{tab:patient_types}
+\end{table}
+
+\subsection{Initial Data Processing -- Low Rank Approximation}
+
+\subsection{Construction of EEG Synchronization Graphs} \label{sec:graph_construct}
+Let $\mX[i,m]$ denote the recorded EEG signal, where $i\in\{1,\ldots,18\}$ represents the index for the $i$th electrode and $m\in\left[1,\ldots,f_s\times M\right]$ represents the time index, $f_s$ represents the sampling frequency, and $M$ is the duration of the recording in seconds.  Sampling frequency, $f_s$, is either $200$ Hz or $400$ Hz.  We constructed epochs of equal lengths with $20\%$ overlap between the  preceding and following epochs.  The number of epochs $N$ is equal to $1.25M/L$, where $L$ is the duration of the epoch in same time units.
+
+Given the nature of these spatio-temporal recordings, we consider constructing {\em time-evolving EEG Synchronization Graphs} on the EEG
+datasets.  A graph is constructed for each epoch.  The {\em nodes} represent the EEG electrodes and the {\em edges} represent a closeness relationship between the nodes in a given epoch.  The main goal sought in the time-evolving EEG synchronization graphs is the ability to sense both the spatial and temporal changes in the network, yielding measures of change for the mining. 
+
+The selection of epoch length is significant in both the time-domain and frequency-domain analysis techniques.  While longer epochs provide
+better frequency resolution, too lengthy epochs may not be stationary~\cite{vandeVelde:eeg_recordings} and not allow rapid detections of changes in the network~\cite{Levy:eeg_pow_spect_1986,Levy:eeg_pow_spect_1987}.  Therefore, shorter epoch lengths are generally preferred.  However, too short epoch lengths may not allow the generation of meaningful graphs for mining.  We use an epoch length of $5$ seconds.  Note that if a wavelet-domain-based measure is employed for the construction of the time-evolving graphs, these effects are reduced or eliminated.  However, as the range of explored frequencies must be arbitrarily  defined prior to the wavelet  analysis, wavelet  domain techniques do not allow the simultaneous exploration of the whole range of the EEG frequency spectrum.
+
+For purposes of illustration, we construct simple time-evolving graphs on the EEG recording shown in Fig.~\ref{fig:ep_graphs}.  The graph edges are established based on the \mbox{pair-wise} relationships between the epoch data.  Specifically, an edge between two distinct nodes $i$ and $k$,  where $i,k\in\{1,\dots, 18\}$, and $i\neq  k$, is established if the pair-wise distance for the $n$th epoch, $d_{i,k}^{n}$, is less than the threshold~$\tau$.  A parametric search is performed to find optimal values for the threshold~$\tau$.  Further information about the search performed on various parameters to determine optimal values is provided in Section~\ref{sec:results}.
+
+\begin{figure}[htb]
+\centering
+\ifthenelse{\putimage = 1}{
+\subfigure[Pre-ictal]{\includegraphics[width=0.4\columnwidth]{\FigDir{pre_ictal.eps}}}
+\subfigure[Ictal]{\includegraphics[width=0.4\columnwidth]{\FigDir{ictal.eps}}}
+\subfigure[Post-Ictal]{\includegraphics[width=0.4\columnwidth]{\FigDir{post_ictal.eps}}}
+}
+\hfill
+\caption{\bf Sample  EEG Synchronization Graphs for pre-ictal,  ictal, and post-ictal epochs.}  It is clearly seen that the ictal period has more coherence between different regions of the brain. 
+\label{fig:ep_graphs}
+\end{figure}
+
+Several synchronization measures have been proposed as plausible options for $d_{i,k}^{n}$.  Based on earlier results (under review), we chose Phase Lag Index~\cite{stam_pli}.  PLI is defined as follows:
+\bea  
+PLI_{i,k}(n)  &=&  \frac{1}{L f_s}  \left\rvert\sum_{m=1}^{L f_s}\mbox{sgn}\lc
+\vphi_i^{n}(m) -\vphi_k^{n}(m)\rc\right\rvert \eea  where $\vphi_{i}^{n} = \arctan({\frac{\hat{\vx}_{i}^{n}}{\vx_{i}^{n}}})$ is the angle of the Hilbert transform $\hat{\vx}_{i}^{n}$ of the signal $\vx_{i}^{n}$.  
+Note that smaller threshold values seek higher correlation between the electrodes, therefore yield sparser graphs.  Similarly, higher threshold  values would establish an edge even if there is small correlation between the data, therefore would yield denser graphs.
+
+\subsection{Feature Extraction from EEG Synchronization Graphs} \label{sec:graph_feats}
+We extract $26$ features from the EEG  graph for each epoch.  These features quantify the compactness, clusteredness, and uniformity of
+the graph.  Apart from these graph-based features, we compute two spectral features - the variance of the eigenvector of the product of the adjacency matrix and the inverse of the degree matrix, and the second largest eigenvalue of the Laplacian matrix.
+
+We also extracted \textbf{*******NIVAS PLACE-HOLDER FOR CHANGE-POINT DETECTION FEATURES, REFER TABLE FOR DESCRIPTION OF FEATURES}
+
+{\em Compactness} of a graph is measured by features such as {\em  average eccentricity},  {\em diameter},  {\em radius}, and {\em 
+number of central points} that are based on the path distances between the nodes within the graph.  The {\em clusteredness} of a graph is
+measured by features such  as {\em average clustering coefficient} and {\em number of  connected components} that are based  on how connected the  nodes  and  their  neighbors  with respect  to  each  other.  In addition, we also extract {\em spectral graph features} such as {\em
+spectral radius} and {\em spectral gap} using the eigenvalues of the adjacency, Laplacian, and normalized Laplacian matrices that reveal
+additional clusteredness and  compactness properties about the graphs.  A  complete  list  of  the  features  used  in  this  work  and  their
+definitions is listed in Table~\ref{tab:features}.
+
+\begin{table}[htb]
+\caption{Description of EEG global graph features.}\label{tab:features}
+\renewcommand{\arraystretch}{0.8} % Increase the height
+
+\begin{tabular}{lll}
+Index&Feature Name& Description\\
+\hline
+\hline
+1&Average Degree&Average number of edges per node\\
+\multirow{2}{*}{2}&\multirow{2}{*}{Clustering Coefficient C} &Average of the ratio of the links a node's neighbors have in between\\
+&&to the total number that can possibly exist\\
+3&Clustering Coefficient D & Same as feature $2$ with node added to both numerator and denominator\\
+\multirow{2}{*}{4}&\multirow{2}{*}{Average Eccentricity} & Average of node eccentricities, where the {\em eccentricity} of a node is the\\
+&&maximum distance from it to any other node in the graph\\
+5&Diameter of graph& Maximum of node eccentricities\\
+6&Radius of graph& Minimum of node eccentricities\\
+7&Average Path Length &Average hops along the shortest paths for all possible pairs of nodes\\
+\multirow{2}{*}{8}&\multirow{2}{*}{Giant Connected Component Ratio}& Ratio between the number of nodes in the largest connected component\\ && in the graph and total
+the number of nodes\\
+9&Number of Connected Components&Number of clusters in the graph excluding the isolated nodes\\
+10&Average Connected Component Size&Average number of nodes per connected component \\
+11&\% of Isolated Points&\% of isolated nodes in the graph, where an {\em isolated node} has a degree 0\\
+12&\% of End Points&\% of endpoints in the graph, where an {\em endpoint} has a degree 1\\
+13&\% of Central Points&\% of nodes in the graph whose eccentricity is equal to the graph radius\\
+14&Number of Edges&Number of edges between all nodes in the graph\\
+15&Spectral Radius & Largest eigenvalue of the adjacency matrix\\
+16&Adjacency Second Largest Eigenvalue&Second largest eigenvalue of the adjacency matrix\\
+17&Adjacency Trace & Sum of the adjacency matrix eigenvalues\\
+18&Adjacency Energy & Sum of the square of adjacency matrix eigenvalues\\
+19&Spectral Gap &  Difference between the magnitudes of the two largest eigenvalues\\
+20 &Laplacian Trace & Sum of the Laplacian matrix eigenvalues\\
+21&Laplacian Energy &  Sum of the square of Laplacian matrix eigenvalues\\
+22&Normalized Laplacian Number of 0's & Number of eigenvalues of the normalized Laplacian matrix that are 0\\
+23&Normalized Laplacian Number of 1's&  Number of eigenvalues of the normalized Laplacian matrix that are 1\\
+24&Normalized Laplacian Number of 2's& Number of eigenvalues of the normalized Laplacian matrix that are 2\\ 
+25&Normalized Laplacian Upper Slope& The sorted slope of the line for the eigenvalues that are between 1 and 2\\
+26&Normalized Laplacian Trace& Sum of the normalized Laplacian matrix eigenvalues\\
+27&Mean of EEG recording&Mean of EEG signal for each electrode and epoch\\
+28&Variance of EEG recording&Variance of EEG signal for each electrode and epoch\\
+29,30&Change-based Features&Mean and variance of change in EEG signal for each electrode and epoch\\
+\multirow{2}{*}{31}&\multirow{2}{*}{Change-based Feature 3}&Variance of EEG signal for particular electrode in given epoch after\\
+&&subtracting the mean of up to 3 previous windows \\
+\multirow{2}{*}{32}&\multirow{2}{*}{Spectral Feature 1}&Variance of eigenvector of the product of the adjacency matrix
+\\&& and the inverse of the degree matrix\\
+33&Spectral Feature 2&Second largest eigenvalue of the Laplacian matrix\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Quadratic Programming Feature Selection}
+\textbf{******* NIVAS PLACE-HOLDER FOR QPFS}
+
+\subsection{Transfer Learning on Features Extracted from EEG Synchronization Graphs and EEG signal}
+
+\subsection{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly} \label{sec:seizure_predict_method}
+\textbf{******NIVAS PLACE-HOLDER FOR LEARNING ON REGULAR SIGNAL }
+\section{Results} \label{sec:results}
+
+\subsection{Seizure Prediction}
+
+\section{Discussion and Conclusions} \label{sec:discuss}
+
+\bibliographystyle{abbrv}
+\bibliography{\BibDir/epilepsy}
+
+\end{document}

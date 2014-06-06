@@ -1,0 +1,29 @@
+1 averageDegree                 
+2 clusteringCoefficientC         
+3 clusteringCoefficientD         
+4 averageEccentricity            
+5 diameter                       
+6 radius               
+7 averagePathLength 
+8 giantConnectedComponentRatio 
+9 numberOfConnectedComp          
+10 averageComponentSize           
+11 percentageOfIsolatedPoints    
+12 percentageOfEndPoints                      
+13 percentageOfCentralPoints 
+14 edgeWeightStd                  
+15 edgeWeightSkewness     
+16 edgeWeightKurtosis         
+17 numOfVertices                  
+18 numOfEdges                     
+19 spectralRadius                 
+20 secondLargest                 
+21 adjTrace                       
+22 adjEnergy                    
+23 laplacianTrace            
+24 laplacianEnergy         
+25 normalized_laplacian_num_of_0s   
+26 normalized_laplacian_lower_slope 
++5 signal metrics
+32 spectral feature 1 - variance eigen 
+33 spectral feature 2 - eigen

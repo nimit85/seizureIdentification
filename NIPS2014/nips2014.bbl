@@ -1,0 +1,138 @@
+\begin{thebibliography}{10}
+
+\bibitem{acar_seizure_localization}
+E.~Acar, C.~A. Bingol, B.~H., and Y.~B.
+\newblock Computational analysis of epileptic focus localization.
+\newblock In {\em Fourth IASTED Int. Conf. on Biomedical Engineering}, pages
+  317--322, 2006.
+
+\bibitem{bullmore2009complex}
+E.~Bullmore and O.~Sporns.
+\newblock Complex brain networks: graph theoretical analysis of structural and
+  functional systems.
+\newblock {\em Nature Reviews Neuroscience}, 10(3):186--198, 2009.
+
+\bibitem{douw2010epilepsy}
+L.~Douw, E.~van Dellen, M.~de~Groot, J.~J. Heimans, M.~Klein, C.~J. Stam, and
+  J.~C. Reijneveld.
+\newblock Epilepsy is related to theta band brain connectivity and network
+  topology in brain tumor patients.
+\newblock {\em BMC Neuroscience}, 11(1):103, 2010.
+
+\bibitem{seizure_def}
+R.~S. Fisher, W.~van Emde~Boas, W.~Blume, C.~Elger, P.~Genton, P.~Lee, and
+  J.~J. Engel.
+\newblock Epileptic seizures and epilepsy: definitions proposed by the
+  international league against epilepsy (ilae) and the international bureau for
+  epilepsy (ibe).
+\newblock {\em Epilepsia}, 46(4):470--472, 2005.
+
+\bibitem{fisher_impact_epilepsy}
+R.~S. Fisher, B.~G. Vickrey, P.~Gibson, B.~Hermann, P.~Penovich, A.~Scherer,
+  and S.~Walker.
+\newblock The impact of epilepsy from the patient's perspective {I}.
+  descriptions and subjective perceptions.
+\newblock {\em Epilepsy Research}, 41(1):39--51, 2000.
+
+\bibitem{jasper_1020}
+H.~H. Jasper.
+\newblock The ten-twenty electrode system of the international federation.
+\newblock {\em Electroencephalogr Clin Neurophysiol Suppl.}, 10:371--375, 1958.
+
+\bibitem{kramer2008emergent}
+M.~A. Kramer, E.~D. Kolaczyk, and H.~E. Kirsch.
+\newblock Emergent network topology at seizure onset in humans.
+\newblock {\em Epilepsy Research}, 79(2):173--186, 2008.
+
+\bibitem{vanquyen_ictogenesis}
+Q.~M. Le~Van, V.~Navarro, J.~Martinerie, M.~Baulac, and V.~F. J.
+\newblock Toward a neurodynamical understanding of ictogenesis.
+\newblock {\em Epilepsia}, 44(12):30--43, 2003.
+
+\bibitem{levan_preictal}
+Q.~M. Le~Van, J.~Soss, V.~Navarro, R.~Robertson, M.~Chavez, M.~Baulac, and
+  J.~Martinerie.
+\newblock Preictal state identification by synchronization changes in long-term
+  intracranial {EEG} recordings.
+\newblock {\em Clinical Neurophysiology}, 116:559--568, 2005.
+
+\bibitem{Levy:eeg_pow_spect_1987}
+W.~J. Levy.
+\newblock The effect of epoch length on the identification of changes in {EEG}
+  power spectra.
+\newblock {\em Anesthesiology}, 65(3A):A539, 1986.
+
+\bibitem{Levy:eeg_pow_spect_1986}
+W.~J. Levy.
+\newblock The effect of epoch length on the identification of changes in {EEG}
+  power spectra.
+\newblock {\em Anesthesiology}, 66(4):489--495, 1987.
+
+\bibitem{mahyari_tensor_brain}
+A.~Mahyari and S.~Aviyente.
+\newblock Identification of dynamic functional brain network states through
+  tensor decomposition.
+\newblock In {\em 39th IEEE International Conference on Acoustics, Speech, and
+  Signal Processing (ICASSP 2014)}, 2014.
+
+\bibitem{mirowski_seizure_prediction_classification}
+P.~Mirowski, D.~Madhavan, Y.~LeCun, and R.~Kuzniecky.
+\newblock Classification of patterns of {EEG} synchronization for seizure
+  prediction.
+\newblock {\em Clinical Neurophysiology}, 120:1927--1940, 2009.
+
+\bibitem{mormann_seizure_prediction}
+F.~Mormann, R.~G. Andrzejak, C.~E. Elger, and K.~Lehnertz.
+\newblock Seizure prediction: the long and winding road.
+\newblock {\em Brain}, 130:314--333, 2007.
+
+\bibitem{mormann2005predictability}
+F.~Mormann, T.~Kreuz, C.~Rieke, R.~Andrzejak, A.~Kraskov, P.~David, C.~Elger,
+  and K.~Lehnertz.
+\newblock On the predictability of epileptic seizures.
+\newblock {\em Clinical neurophysiology}, 116(3):569--587, 2005.
+
+\bibitem{paivinen2005epileptic}
+N.~P{\"a}ivinen, S.~Lammi, A.~Pitk{\"a}nen, J.~Nissinen, M.~Penttonen, and
+  T.~Gr{\"o}nfors.
+\newblock Epileptic seizure detection: A nonlinear viewpoint.
+\newblock {\em Computer methods and programs in biomedicine}, 79(2):151--159,
+  2005.
+
+\bibitem{schindler2008evolving}
+K.~A. Schindler, S.~Bialonski, M.-T. Horstmann, C.~E. Elger, and K.~Lehnertz.
+\newblock Evolving functional network properties and synchronizability during
+  human epileptic seizures.
+\newblock {\em CHAOS: An Interdisciplinary Journal of Nonlinear Science},
+  18(3):033119, 2008.
+
+\bibitem{smith_eegrecording}
+S.~J.~M. Smith.
+\newblock {EEG} in the diagnosis, classification, and management of patients
+  with epilepsy.
+\newblock {\em J Neurol Neurosurg Psychiatry}, 76:ii2--i--i7, 2005.
+
+\bibitem{stam2012organization}
+C.~Stam and E.~van Straaten.
+\newblock The organization of physiological brain networks.
+\newblock {\em Clinical Neurophysiology}, 2012.
+
+\bibitem{stam_pli}
+C.~J. Stam, G.~Nolte, and A.~Daffertshofer.
+\newblock Phase lag index: Assessment of functional connectivity from multi
+  channel {EEG} and {MEG} with diminished bias from common sources.
+\newblock {\em Human Brain Mapping}, 28:1178--1193, 2007.
+
+\bibitem{vandeVelde:eeg_recordings}
+M.~van~de Velde, I.~R. Ghosh, and P.~J.~M. Cluitmans.
+\newblock Context related artefact detection in prolonged {EEG} recordings.
+\newblock {\em Computer Methods and Programs in Biomedicine}, 60(3):183--196,
+  1999.
+
+\bibitem{van2005detecting}
+M.~J. A.~M. van Putten, T.~Kind, F.~Visser, and V.~Lagerburg.
+\newblock Detecting temporal lobe seizures from scalp {EEG} recordings: a
+  comparison of various features.
+\newblock {\em Clinical neurophysiology}, 116(10):2480--2489, 2005.
+
+\end{thebibliography}
