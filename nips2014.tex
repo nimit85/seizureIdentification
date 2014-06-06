@@ -2,7 +2,7 @@
 \usepackage{nips14submit_e,times}
 \usepackage{hyperref}
 \usepackage{url}
-\usepackage{amsmath,epsfig,latexsym,amssymb,subfigure,ifthen,multirow}
+\usepackage{amsmath,epsfig,latexsym,amssymb,subfigure,ifthen,multirow,fullpage}
 \usepackage{graphicx}
 \usepackage[nospace,noadjust]{cite}
 %\usepackage{setspace} 
@@ -19,14 +19,16 @@
 \newcommand{\variance}[1]{\var \left[ #1 \right]}
 \newcommand{\E}[1]{\mathbb{E}\left[ #1 \right]}
 \newcommand{\Prb}[1]{\mathbb{P} \left[ #1 \right]}
-\newcommand{\norm}[1]{\left| \left| #1 \right| \right|}
+%\newcommand{\norm}[1]{\left| \left| #1 \right| \right|}
 \newcommand{\mean}[1]{\left \langle #1 \right \rangle}
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\rls}[1]{\mathbb{R}^{#1}}
+\DeclareMathOperator{\var}{Var}
 
 \renewcommand{\a}{\alpha}
 \newcommand{\e}{\epsilon}
 \renewcommand{\t}{\tau}
 
-\renewcommand{\a}{\alpha}
 \renewcommand{\b}{\beta}
 \newcommand{\g}{\gamma}
 \renewcommand{\d}{\delta}
@@ -71,7 +73,7 @@ Since the EEG signals are continuously recorded, they can be represented as a ti
 
 The two main contributions of this work are as follows: (i) bridging the two concepts of AR modeling and synchronization graphs by constructing an AR$(1)$ model on the features extracted from the time-evolving EEG synchronization graphs,  and (ii) introducing the concept of transfer learning to improve the predictions of the AR$(1)$ model.
 
-The organization of the paper is as follows: in Section~\ref{sec:method}, we describe our methodology starting with the epileptic EEG dataset, initial noise removal, procedure to construct EEG synchronization graphs and extract features from the graph, feature selection method based on quadratic programming, transfer learning on the features, and using anomaly detection as a means for seizure prediction.  In Section~\ref{sec:results} we present the results for seizure prediction.  Finally, we provide an overview, discuss the results, and list extensions to this study, in Section~\ref{sec:discuss}.
+The organization of the paper is as follows: in Section~\ref{sec:method}, we describe our methodology starting with the epileptic EEG dataset, initial noise removal, procedure to construct EEG synchronization graphs and extract features from the graph, feature selection method based on quadratic programming, transfer learning on the features, and using anomaly detection as a means for seizure prediction.  In Section~\ref{sec:results} we present the results for seizure prediction.  We discuss the results in Section~\ref{sec:results}, and provide an overview and list possible extensions to this study, in Section~\ref{sec:discuss}.
 
 \section{Methodology} \label{sec:method}
 
@@ -207,15 +209,15 @@ argmin\{||[Z]_{t-1}^0*\Rho - [Z]_{t}^{1}||_F^2 + \lambda||\Rho - \Rho_1||^2_F\} 
 \end{equation}
 where $\lambda$ is the Tikhonov regularizer and decides the contribution of the transfer set in improving the estimates of future values predicted by $D$.  The first term is the objective function for autoregression, and the second term is the additional objective function for the transfer learning.  As more data is obtained for $D$, the value of $\lambda$ is reduced because now the core set is getting better at predicting its own future values.  To test our estimates, we use the following split between the training and testing data.  First, we split $D$ into training ($TR$) and testing ($TE$) sets.  Within the training set, we create a further split thereby creating a training prime ($TR'$) and validation ($Val$) sets.  The idea behind this split is to train our AR(1) model on $TR'$, and then use the transfer set to test on $Val$.  Then, we retrain the model using the learned parameters on the entire training set $TR$ and finally test on $TE$. 
 
-\section{Determining The Significance of Features}
-The computed features were motivated by discussions with the subject matter experts, with the view of casting a meaningful but wide net to capture  attributes of an epileptic seizure. However, this doesn't strictly preclude the possibility that, with respect to the phenomenon of epileptic seizure, certain features may be redundant, or low in predictive importance. Therefore, we quantify the predictive significance of the features in a natural but effective way, and score the features to maximize predictive importance and minimize redundancy using the method in [Rod Luj], which we summarize here.
+\subsection{Determining The Significance of Features}
+The computed features were motivated by discussions with the subject matter experts, with the view of casting a meaningful but wide net to capture  attributes of an epileptic seizure. However, this doesn't strictly preclude the possibility that, with respect to the phenomenon of epileptic seizure, certain features may be redundant, or low in predictive importance. Therefore, we quantify the predictive significance of the features in a natural but effective way, and score the features to maximize predictive importance and minimize redundancy using the method in~\cite{quadprog_featsel}, which we summarize here.
 
-\subsection{Measuring Redundancy}
-Our notion of redundancy arises naturally from the interpretation of brain activity as a stochastic process, whence the usual notion of linear dependence is replaced with the notion of statistical correlation. Specifically, suppose the data matrix, $D$, spanning $t$ epochs, is $t \times n$, with $n$ features, $z_i, 1 \leq i \leq n, z_i \in \rl^t$. We define, the correlation matrix, $Q \in \rls{n, n}$, elementwise, where $Q(i, j)$ is the pearson correlation coefficient between the feature vectors $z_i$ and $z_j$:
+\subsubsection{Measuring Redundancy}
+Our notion of redundancy arises naturally from the interpretation of brain activity as a stochastic process, whence the usual notion of linear dependence is replaced with the notion of statistical correlation. Specifically, suppose the data matrix, $D$, spanning $t$ epochs, is $t \times n$, with $n$ features, $z_i, 1 \leq i \leq n, z_i \in \rl^t$. We define, the correlation matrix, $Q \in \rls{n, n}$, element-wise, where $Q(i, j)$ is the pearson correlation coefficient between the feature vectors $z_i$ and $z_j$:
 \[ Q(i, j) = \frac{z_i ^T z_j}{\norm{z_i}\norm{z_j}}.  \]
 The quadratic form $x^T Q x$ thus has the natural interpretation of yielding the sample-covariance of a compound feature, with coefficients contained in $x$, which is the notion of redundancy we wish to minimize.
 
-\subsection{Measuring Predictive Importance}
+\subsubsection{Measuring Predictive Importance}
 We first recall that the activity of the brain at time $t$ is completely captured by $d^t$. We define the predictive importance, $f_i$, of a feature, $z_i$, as the r.m.s. influence of $z_i ^t$ on $z_j ^{t+1}, 1 \leq j \leq n$, measured by the coefficients in the forecast operator corresponding to $z_i$. Formally, let $\Psi \in \rls{n, n+1}$ be the forecast operator. Then our best prediction of $d^{t+1}$ is $\tilde{d}^{t+1}$ where
 \[ \tilde d^{t+1} = d^t \Psi ^T. \]
 The influence, $p_i (j)$, of feature $z_i$ on $z_j$, contained in $p_i \in \rl^n$, may be determined by predicting via $\Psi$ using its indicator vector, $e_i$:
@@ -224,7 +226,7 @@ whence the r.m.s. influence, $f_i$, of $z_i$ is simply
 \[ f_i = \norm{p_i} = \norm{\Psi_i}, \]
 the column-norm of the forecast operator corresponding to column $i$. We define $f \in \rl^n$ such that $f_i = \norm{\Psi_i}$, as the predictive importance vector. 
 
-\subsection{Optimizing Redundancy and Predictive Importance}
+\subsubsection{Optimizing Redundancy and Predictive Importance}
 We note that we may indicate features that maximize predictive importance and minimize redundancy by solving 
 \[ \bar{x} = \arg \min x^T Q x - f^T x; \quad x \geq 0, \quad \sum_i x_i  = 1, \]
 where the constraints arise from forcing the resulting vector to be a distribution, from which we may omit an appropriately sized tail, should we choose to do so. However, the magnitudes of entries in $Q, f$ may be vastly different for very similar data - for example, a data matrix $aD$ would have the same correlation matrix as $D$, but its predictive importance vector would be $a$ times as large. To make the objective function scale invariant, we normalize $f$ to obtain
@@ -232,7 +234,7 @@ where the constraints arise from forcing the resulting vector to be a distributi
 
 Finally, to effect a meaningful trade-off between minimizing redundancy and maximizing predictive importance, we take a convex combination of the objective functions in both optimization problems:
 \[ q(x) = (1 - \a) x^T Q x - \a  f^T x, \]
-where $\a$ is chosen, as in [rodLuj] as 
+where $\a$ is chosen, as in~\cite{quadprog_featsel} as 
 \[ \a  = \frac{\sum_{i, j} Q(i, j) /n^2}{\sum_{i, j} Q(i, j)/n^2 + \sum_k f_k / n}. \]
 We solve the resulting optimization problem:
 \[ x^* = \arg \min q(x); \quad s.t. x \geq 0, \quad \sum_i x_i = 1 \]
@@ -244,10 +246,8 @@ to obtain an importance-distribution over the features.
 \section{Results} \label{sec:results}
 We present results for the Quadratic Programming Feature Selection algorithm, determining the best forecast operator, and a comparison of the performance of our seizure prediction algorithm on basic autoregression vs. with the addition of transfer learning.
 
-\subsection{QPFS Results}
-Average degree, Diameter of graph, Radius of graph, Average Path Length, Giant Connected Component Ratio, Number of Connected Components, Percentage of isolated points, Laplacian Trace, Mean of change in EEG signal
-[1,5,6,7,8,9,11,20,29]
-
+\subsection{Quadratic Programming Feature Selection Results}
+We ran the QPFS algorithm on the data sets, and selected all the features that were returned by the algorithm as discriminating features.  These features are the following (i) Average Degree, (ii) Diameter of graph, (iii) Radius of graph, (iv) Average Path Length, (v) Giant Connected Component Ratio, (vi) Number of Connected Components, (vii) Percentage of Isolated Points, (viii) Laplacian Trace, (ix) Mean of change in EEG signal.
 
 \subsection{Best Predictor Operator for Seizure Prediction}
 
