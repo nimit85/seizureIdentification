@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 JUN 2014 16:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  6 JUN 2014 07:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -321,6 +321,10 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen124
 )
+(/usr/local/texlive/2011/texmf-dist/tex/latex/preprint/fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip53
+)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
@@ -328,21 +332,21 @@ Package: cite 2010/09/10  v 5.3
 ) (./latexmacros.tex) (./nips2014.aux)
 \openout1 = `nips2014.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 52.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -363,7 +367,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \makeMPintoPDFobject=\count124
 \everyMPtoPDFconversion=\toks21
 )
-Package hyperref Info: Link coloring OFF on input line 27.
+Package hyperref Info: Link coloring OFF on input line 52.
  (/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -372,9 +376,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
-LaTeX Info: Redefining \nameref on input line 27.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (./nips2014.out) (./nips2014.out)
 \@outlinefile=\write3
@@ -397,37 +401,34 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 30.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 55.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+LaTeX Font Info:    Try loading font information for U+msa on input line 55.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+LaTeX Font Info:    Try loading font information for U+msb on input line 55.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 30.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 55.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 57.
  [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
+] [2]
 Package epstopdf Info: Source file: <./figures/pre_ictal.eps>
 (epstopdf)                    date: 2014-05-29 20:53:22
 (epstopdf)                    size: 12662 bytes
@@ -436,16 +437,16 @@ Package epstopdf Info: Source file: <./figures/pre_ictal.eps>
 (epstopdf)                    size: 6934 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/pre_ictal-eps-con
 verted-to.pdf ./figures/pre_ictal.eps>
-(epstopdf)             \includegraphics on input line 103.
+(epstopdf)             \includegraphics on input line 132.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/pre_ictal-eps-converted-to.pdf, id=122, 517.935pt x 447.6725pt>
+<./figures/pre_ictal-eps-converted-to.pdf, id=162, 517.935pt x 447.6725pt>
 File: ./figures/pre_ictal-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/pre_ictal-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/pre_ictal-eps-converted-to.pdf used on input
- line 103.
-(pdftex.def)             Requested size: 158.99156pt x 137.42451pt.
+ line 132.
+(pdftex.def)             Requested size: 140.92793pt x 121.80902pt.
 Package epstopdf Info: Source file: <./figures/ictal.eps>
 (epstopdf)                    date: 2014-05-29 20:53:20
 (epstopdf)                    size: 14182 bytes
@@ -454,16 +455,16 @@ Package epstopdf Info: Source file: <./figures/ictal.eps>
 (epstopdf)                    size: 7133 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/ictal-eps-convert
 ed-to.pdf ./figures/ictal.eps>
-(epstopdf)             \includegraphics on input line 103.
+(epstopdf)             \includegraphics on input line 132.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/ictal-eps-converted-to.pdf, id=123, 517.935pt x 447.6725pt>
+<./figures/ictal-eps-converted-to.pdf, id=163, 517.935pt x 447.6725pt>
 File: ./figures/ictal-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/ictal-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ictal-eps-converted-to.pdf used on input lin
-e 103.
-(pdftex.def)             Requested size: 158.99156pt x 137.42451pt.
+e 132.
+(pdftex.def)             Requested size: 140.92793pt x 121.80902pt.
 Package epstopdf Info: Source file: <./figures/post_ictal.eps>
 (epstopdf)                    date: 2014-05-29 20:53:22
 (epstopdf)                    size: 12757 bytes
@@ -473,48 +474,198 @@ Package epstopdf Info: Source file: <./figures/post_ictal.eps>
 (epstopdf)                    size: 6954 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/post_ictal-eps-co
 nverted-to.pdf ./figures/post_ictal.eps>
-(epstopdf)             \includegraphics on input line 103.
+(epstopdf)             \includegraphics on input line 132.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/post_ictal-eps-converted-to.pdf, id=124, 517.935pt x 447.6725pt>
+<./figures/post_ictal-eps-converted-to.pdf, id=164, 517.935pt x 447.6725pt>
 File: ./figures/post_ictal-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/post_ictal-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/post_ictal-eps-converted-to.pdf used on inpu
-t line 103.
-(pdftex.def)             Requested size: 158.99156pt x 137.42451pt.
+t line 132.
+(pdftex.def)             Requested size: 140.92793pt x 121.80902pt.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 111.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 140.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 111.
-
-Overfull \hbox (108.37158pt too wide) in paragraph at lines 131--174
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 140.
+ [3]
+Overfull \hbox (36.10155pt too wide) in paragraph at lines 154--197
 [][] 
  []
 
-[3] (./nips2014.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[4 <./figures/pre_ictal-eps-converted-to.pdf> <./figures/ictal-eps-converted-to
+.pdf> <./figures/post_ictal-eps-converted-to.pdf>] [5]
+Package epstopdf Info: Source file: <./figures/DAK_3_nbyn+1.eps>
+(epstopdf)                    date: 2014-06-06 06:37:23
+(epstopdf)                    size: 16224 bytes
+(epstopdf)             Output file: <./figures/DAK_3_nbyn+1-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2014-06-06 06:49:57
+(epstopdf)                    size: 29028 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/DAK_3_nbyn+1-eps-
+converted-to.pdf ./figures/DAK_3_nbyn+1.eps>
+(epstopdf)             \includegraphics on input line 262.
+Package epstopdf Info: Output file is already uptodate.
 
- [4 <./figures/pre_ictal-eps-converted-to.pdf> <./figures/ictal-eps-converted-t
-o.pdf> <./figures/post_ictal-eps-converted-to.pdf>] [5])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
+<./figures/DAK_3_nbyn+1-eps-converted-to.pdf, id=218, 492.84125pt x 404.51125pt
+>
+File: ./figures/DAK_3_nbyn+1-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./figures/DAK_3_nbyn+1-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/DAK_3_nbyn+1-eps-converted-to.pdf used on in
+put line 262.
+(pdftex.def)             Requested size: 211.38832pt x 173.50438pt.
+Package epstopdf Info: Source file: <./figures/OB_1_nbyn+1.eps>
+(epstopdf)                    date: 2014-06-06 06:37:29
+(epstopdf)                    size: 15667 bytes
+(epstopdf)             Output file: <./figures/OB_1_nbyn+1-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2014-06-06 06:49:57
+(epstopdf)                    size: 27392 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/OB_1_nbyn+1-eps-c
+onverted-to.pdf ./figures/OB_1_nbyn+1.eps>
+(epstopdf)             \includegraphics on input line 262.
+Package epstopdf Info: Output file is already uptodate.
+
+<./figures/OB_1_nbyn+1-eps-converted-to.pdf, id=219, 497.86pt x 404.51125pt>
+File: ./figures/OB_1_nbyn+1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figures/OB_1_nbyn+1-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/OB_1_nbyn+1-eps-converted-to.pdf used on inp
+ut line 262.
+(pdftex.def)             Requested size: 211.38832pt x 171.7576pt.
+Package epstopdf Info: Source file: <./figures/DAK_3_nby10.eps>
+(epstopdf)                    date: 2014-06-06 06:43:21
+(epstopdf)                    size: 16265 bytes
+(epstopdf)             Output file: <./figures/DAK_3_nby10-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2014-06-06 06:49:56
+(epstopdf)                    size: 28680 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/DAK_3_nby10-eps-c
+onverted-to.pdf ./figures/DAK_3_nby10.eps>
+(epstopdf)             \includegraphics on input line 262.
+Package epstopdf Info: Output file is already uptodate.
+
+<./figures/DAK_3_nby10-eps-converted-to.pdf, id=220, 497.86pt x 404.51125pt>
+File: ./figures/DAK_3_nby10-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figures/DAK_3_nby10-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/DAK_3_nby10-eps-converted-to.pdf used on inp
+ut line 262.
+(pdftex.def)             Requested size: 211.38832pt x 171.7576pt.
+Package epstopdf Info: Source file: <./figures/OB_1_nby10.eps>
+(epstopdf)                    date: 2014-06-06 06:43:26
+(epstopdf)                    size: 15814 bytes
+(epstopdf)             Output file: <./figures/OB_1_nby10-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2014-06-06 06:49:57
+(epstopdf)                    size: 27467 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/OB_1_nby10-eps-co
+nverted-to.pdf ./figures/OB_1_nby10.eps>
+(epstopdf)             \includegraphics on input line 262.
+Package epstopdf Info: Output file is already uptodate.
+
+<./figures/OB_1_nby10-eps-converted-to.pdf, id=221, 497.86pt x 404.51125pt>
+File: ./figures/OB_1_nby10-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figures/OB_1_nby10-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/OB_1_nby10-eps-converted-to.pdf used on inpu
+t line 262.
+(pdftex.def)             Requested size: 211.38832pt x 171.7576pt.
+Package epstopdf Info: Source file: <./figures/FZE_4_ar.eps>
+(epstopdf)                    date: 2014-06-06 06:58:25
+(epstopdf)                    size: 22593 bytes
+(epstopdf)             Output file: <./figures/FZE_4_ar-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-06 07:02:52
+(epstopdf)                    size: 39158 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/FZE_4_ar-eps-conv
+erted-to.pdf ./figures/FZE_4_ar.eps>
+(epstopdf)             \includegraphics on input line 275.
+Package epstopdf Info: Output file is already uptodate.
+
+<./figures/FZE_4_ar-eps-converted-to.pdf, id=222, 492.84125pt x 404.51125pt>
+File: ./figures/FZE_4_ar-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figures/FZE_4_ar-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/FZE_4_ar-eps-converted-to.pdf used on input 
+line 275.
+(pdftex.def)             Requested size: 211.38832pt x 173.50438pt.
+Package epstopdf Info: Source file: <./figures/IP_1_ar.eps>
+(epstopdf)                    date: 2014-06-06 06:58:23
+(epstopdf)                    size: 17352 bytes
+(epstopdf)             Output file: <./figures/IP_1_ar-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-06 07:02:52
+(epstopdf)                    size: 31626 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/IP_1_ar-eps-conve
+rted-to.pdf ./figures/IP_1_ar.eps>
+(epstopdf)             \includegraphics on input line 275.
+Package epstopdf Info: Output file is already uptodate.
+
+<./figures/IP_1_ar-eps-converted-to.pdf, id=223, 497.86pt x 404.51125pt>
+File: ./figures/IP_1_ar-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figures/IP_1_ar-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/IP_1_ar-eps-converted-to.pdf used on input l
+ine 275.
+(pdftex.def)             Requested size: 211.38832pt x 171.7576pt.
+Package epstopdf Info: Source file: <./figures/FZE_4_tl.eps>
+(epstopdf)                    date: 2014-06-06 06:57:24
+(epstopdf)                    size: 22066 bytes
+(epstopdf)             Output file: <./figures/FZE_4_tl-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-06 07:02:52
+(epstopdf)                    size: 43556 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/FZE_4_tl-eps-conv
+erted-to.pdf ./figures/FZE_4_tl.eps>
+(epstopdf)             \includegraphics on input line 275.
+Package epstopdf Info: Output file is already uptodate.
+
+<./figures/FZE_4_tl-eps-converted-to.pdf, id=224, 497.86pt x 404.51125pt>
+File: ./figures/FZE_4_tl-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figures/FZE_4_tl-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/FZE_4_tl-eps-converted-to.pdf used on input 
+line 275.
+(pdftex.def)             Requested size: 211.38832pt x 171.7576pt.
+Package epstopdf Info: Source file: <./figures/IP_1_tl.eps>
+(epstopdf)                    date: 2014-06-06 06:57:20
+(epstopdf)                    size: 17489 bytes
+(epstopdf)             Output file: <./figures/IP_1_tl-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-06 07:02:52
+(epstopdf)                    size: 30928 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/IP_1_tl-eps-conve
+rted-to.pdf ./figures/IP_1_tl.eps>
+(epstopdf)             \includegraphics on input line 275.
+Package epstopdf Info: Output file is already uptodate.
+
+<./figures/IP_1_tl-eps-converted-to.pdf, id=225, 497.86pt x 404.51125pt>
+File: ./figures/IP_1_tl-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figures/IP_1_tl-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/IP_1_tl-eps-converted-to.pdf used on input l
+ine 275.
+(pdftex.def)             Requested size: 211.38832pt x 171.7576pt.
+ (./nips2014.bbl [6] [7 <./figures/DAK_3_nbyn+1-eps-converted-to.pdf> <./figure
+s/OB_1_nbyn+1-eps-converted-to.pdf> <./figures/DAK_3_nby10-eps-converted-to.pdf
+> <./figures/OB_1_nby10-eps-converted-to.pdf>] [8 <./figures/FZE_4_ar-eps-conve
+rted-to.pdf> <./figures/IP_1_ar-eps-converted-to.pdf> <./figures/FZE_4_tl-eps-c
+onverted-to.pdf> <./figures/IP_1_tl-eps-converted-to.pdf>] [9])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 289.
+ [10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 289.
  (./nips2014.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 289.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 289.
 Package rerunfilecheck Info: File `nips2014.out' has not changed.
-(rerunfilecheck)             Checksum: 7E3E5171CF0606CF3867EA6E6F47D631;981.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
+(rerunfilecheck)             Checksum: D37ACB0AF630EC5C5628BE934C540972;1420.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 289.
  ) 
 Here is how much of TeX's memory you used:
- 7045 strings out of 493633
- 99393 string characters out of 3143378
- 202364 words of memory out of 3000000
- 10170 multiletter control sequences out of 15000+200000
- 21429 words of font info for 53 fonts, out of 3000000 for 9000
+ 7193 strings out of 493633
+ 102501 string characters out of 3143378
+ 201497 words of memory out of 3000000
+ 10262 multiletter control sequences out of 15000+200000
+ 25363 words of font info for 69 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 37i,11n,39p,1520b,417s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,12n,39p,1653b,413s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texl
@@ -522,19 +673,24 @@ ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
 ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
 e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/
 2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/20
-11/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/20
-11/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/tex
-mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2011/texmf-dist/
-fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/t
-ype1/urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/t
-imes/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri
-8a.pfb>
-Output written on nips2014.pdf (6 pages, 185576 bytes).
+11/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2011
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2011
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts
+/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/
+urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on nips2014.pdf (10 pages, 476601 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 337 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

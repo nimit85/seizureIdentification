@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: nips2014.aux
 The style file: abbrv.bst
 Database file #1: ./bibliography/epilepsy.bib
-You've used 22 entries,
+You've used 34 entries,
             2118 wiz_defined-function locations,
-            635 strings with 8134 characters,
-and the built_in function-call counts, 8514 in all, are:
-= -- 821
-> -- 497
-< -- 1
-+ -- 201
-- -- 174
-* -- 705
-:= -- 1456
-add.period$ -- 66
-call.type$ -- 22
-change.case$ -- 153
+            710 strings with 10097 characters,
+and the built_in function-call counts, 13006 in all, are:
+= -- 1263
+> -- 741
+< -- 2
++ -- 300
+- -- 258
+* -- 1084
+:= -- 2217
+add.period$ -- 102
+call.type$ -- 34
+change.case$ -- 231
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 256
-empty$ -- 589
-format.name$ -- 174
-if$ -- 1693
+cite$ -- 34
+duplicate$ -- 391
+empty$ -- 910
+format.name$ -- 258
+if$ -- 2586
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 22
-newline$ -- 113
-num.names$ -- 44
-pop$ -- 122
+int.to.str$ -- 34
+missing$ -- 35
+newline$ -- 173
+num.names$ -- 68
+pop$ -- 182
 preamble$ -- 1
-purify$ -- 131
+purify$ -- 197
 quote$ -- 0
-skip$ -- 169
+skip$ -- 255
 stack$ -- 0
-substring$ -- 591
-swap$ -- 33
-text.length$ -- 1
+substring$ -- 931
+swap$ -- 46
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 134
 warning$ -- 0
-while$ -- 81
-width$ -- 24
-write$ -- 242
+while$ -- 126
+width$ -- 36
+write$ -- 375

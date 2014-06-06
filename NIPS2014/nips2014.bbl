@@ -6,6 +6,25 @@ E.~Acar, C.~A. Bingol, B.~H., and Y.~B.
 \newblock In {\em Fourth IASTED Int. Conf. on Biomedical Engineering}, pages
   317--322, 2006.
 
+\bibitem{anderson_offline_ar}
+N.~R. Anderson, K.~Wisneski, L.~Eisenman, D.~W. Moran, E.~C. Leuthardt, and
+  D.~J. Krusienski.
+\newblock An offline evaluation of the autoregressive spectrum for
+  electrocorticography.
+\newblock {\em IEEE Trans Biomed Eng}, 56(3):913--916, 2009.
+
+\bibitem{bilgin_multiscale}
+C.~C. Bilgin, S.~Ray, B.~Baydil, W.~P. Daley, M.~Larsen, and B.~Yener.
+\newblock Multiscale feature analysis of salivary gland branching
+  morphogenesis.
+\newblock {\em PLoS ONE}, 7(3):e32906, 2012.
+
+\bibitem{bronzino_eeg}
+J.~D. Bronzino.
+\newblock {\em Biomedical Engineering Handbook}, chapter Principles of
+  electroencephalography.
+\newblock New York: Taylor and Francis, 3rd edition, 2006.
+
 \bibitem{bullmore2009complex}
 E.~Bullmore and O.~Sporns.
 \newblock Complex brain networks: graph theoretical analysis of structural and
@@ -34,6 +53,11 @@ R.~S. Fisher, B.~G. Vickrey, P.~Gibson, B.~Hermann, P.~Penovich, A.~Scherer,
   descriptions and subjective perceptions.
 \newblock {\em Epilepsy Research}, 41(1):39--51, 2000.
 
+\bibitem{hazarika_wavelet}
+N.~Hazarika, J.~Z. Chen, A.~C. Tsoi, and A.~Sergejew.
+\newblock Classification of eeg signals using the wavelet transform.
+\newblock {\em Signal Process.}, 59:61--72, 1997.
+
 \bibitem{jasper_1020}
 H.~H. Jasper.
 \newblock The ten-twenty electrode system of the international federation.
@@ -43,6 +67,12 @@ H.~H. Jasper.
 M.~A. Kramer, E.~D. Kolaczyk, and H.~E. Kirsch.
 \newblock Emergent network topology at seizure onset in humans.
 \newblock {\em Epilepsy Research}, 79(2):173--186, 2008.
+
+\bibitem{chisci_real_time}
+C.~L., M.~A., P.~G., S.~M., A.~C., C.~G., and F.~Fuggetta.
+\newblock Real-time epileptic seizure prediction using ar models and support
+  vector machines.
+\newblock {\em IEEE Trans Biomed Eng}, 57(5):1124--1132, May 2010.
 
 \bibitem{vanquyen_ictogenesis}
 Q.~M. Le~Van, V.~Navarro, J.~Martinerie, M.~Baulac, and V.~F. J.
@@ -68,6 +98,17 @@ W.~J. Levy.
   power spectra.
 \newblock {\em Anesthesiology}, 66(4):489--495, 1987.
 
+\bibitem{liu_artificial_neural}
+H.~S. Liu, T.~Zhang, and F.~S. Yang.
+\newblock A multistage, multimethod approach for automatic detection and
+  classification of epileptiform {EEG}.
+\newblock {\em IEEE Trans Biomed Eng}, 49(12 Pt 2):1557--1566, 2002.
+
+\bibitem{lytton_model_epilepsy}
+W.~W. Lytton.
+\newblock Computer modeling of {E}pilepsy.
+\newblock {\em Nat. Rev. Neurosci.}, 9(8):626--637, Aug. 2008.
+
 \bibitem{mahyari_tensor_brain}
 A.~Mahyari and S.~Aviyente.
 \newblock Identification of dynamic functional brain network states through
@@ -92,12 +133,33 @@ F.~Mormann, T.~Kreuz, C.~Rieke, R.~Andrzejak, A.~Kraskov, P.~David, C.~Elger,
 \newblock On the predictability of epileptic seizures.
 \newblock {\em Clinical neurophysiology}, 116(3):569--587, 2005.
 
+\bibitem{murali_wavelet}
+S.~Murali and V.~V. Kulish.
+\newblock Modeling of evoked potentials of electroencephalograms: An overview.
+\newblock {\em Digit. Signal Process.}, 17:665--674, 2007.
+
+\bibitem{muthuswamy_spectral}
+J.~Muthuswamy and N.~V. Thakor.
+\newblock Spectral analysis methods for neurological signals.
+\newblock {\em J. Neurosci. Methods}, 83:1--14, 1998.
+
 \bibitem{paivinen2005epileptic}
 N.~P{\"a}ivinen, S.~Lammi, A.~Pitk{\"a}nen, J.~Nissinen, M.~Penttonen, and
   T.~Gr{\"o}nfors.
 \newblock Epileptic seizure detection: A nonlinear viewpoint.
 \newblock {\em Computer methods and programs in biomedicine}, 79(2):151--159,
   2005.
+
+\bibitem{transfer_learning_survey}
+S.~J. Pan and Q.~Yang.
+\newblock A survey on transfer learning.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  22(10):1345--1359, Oct. 2010.
+
+\bibitem{quadprog_featsel}
+I.~Rodriguez-Lujan, R.~Huerta, C.~Elkan, and C.~S. Cruz.
+\newblock Quadratic programming feature selection.
+\newblock {\em J. Mach. Learn. Res.}, 11:1491--1516, 8 2010.
 
 \bibitem{schindler2008evolving}
 K.~A. Schindler, S.~Bialonski, M.-T. Horstmann, C.~E. Elger, and K.~Lehnertz.
@@ -123,6 +185,12 @@ C.~J. Stam, G.~Nolte, and A.~Daffertshofer.
   channel {EEG} and {MEG} with diminished bias from common sources.
 \newblock {\em Human Brain Mapping}, 28:1178--1193, 2007.
 
+\bibitem{subasi_EEG_AR}
+A.~Subasi, A.~Alkan, E.~Koklukaya, and M.~K. Kiymik.
+\newblock Wavelet neural network classification of {EEG} signals by using ar
+  models with mle processing.
+\newblock {\em Neural Networks}, 18(7):985--997, 2005.
+
 \bibitem{vandeVelde:eeg_recordings}
 M.~van~de Velde, I.~R. Ghosh, and P.~J.~M. Cluitmans.
 \newblock Context related artefact detection in prolonged {EEG} recordings.
@@ -133,6 +201,6 @@ M.~van~de Velde, I.~R. Ghosh, and P.~J.~M. Cluitmans.
 M.~J. A.~M. van Putten, T.~Kind, F.~Visser, and V.~Lagerburg.
 \newblock Detecting temporal lobe seizures from scalp {EEG} recordings: a
   comparison of various features.
-\newblock {\em Clinical neurophysiology}, 116(10):2480--2489, 2005.
+\newblock {\em Clinical Neurophysiology}, 116(10):2480--2489, 2005.
 
 \end{thebibliography}

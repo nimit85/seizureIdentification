@@ -2,7 +2,7 @@
 \usepackage{nips14submit_e,times}
 \usepackage{hyperref}
 \usepackage{url}
-\usepackage{amsmath,epsfig,latexsym,amssymb,subfigure,ifthen,multirow}
+\usepackage{amsmath,epsfig,latexsym,amssymb,subfigure,ifthen,multirow,fullpage}
 \usepackage{graphicx}
 \usepackage[nospace,noadjust]{cite}
 %\usepackage{setspace} 
@@ -15,6 +15,31 @@
 \newcommand{\vphi}{\mbox{\boldmath $\phi$\unboldmath}}
 \newcommand{\fix}{\marginpar{FIX}}
 \newcommand{\new}{\marginpar{NEW}}
+\newcommand{\Rho}{\mathrm{P}}
+\newcommand{\variance}[1]{\var \left[ #1 \right]}
+\newcommand{\E}[1]{\mathbb{E}\left[ #1 \right]}
+\newcommand{\Prb}[1]{\mathbb{P} \left[ #1 \right]}
+%\newcommand{\norm}[1]{\left| \left| #1 \right| \right|}
+\newcommand{\mean}[1]{\left \langle #1 \right \rangle}
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\rls}[1]{\mathbb{R}^{#1}}
+\DeclareMathOperator{\var}{Var}
+
+\renewcommand{\a}{\alpha}
+\newcommand{\e}{\epsilon}
+\renewcommand{\t}{\tau}
+
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\renewcommand{\e}{\epsilon}
+\newcommand{\f}{\phi}
+\renewcommand{\r}{\rho}
+\renewcommand{\t}{\theta}
+\newcommand{\m}{\mu}
+\newcommand{\s}{\sigma}
+
+\renewcommand{\S}{\Sigma}
 
  \input{latexmacros}
 
@@ -36,16 +61,19 @@ Abstract goes here.
 \section{Introduction}
 Epilepsy is one of the most common disorders of the central nervous system characterized by recurring seizures.  An epileptic seizure is described by abnormally excessive or synchronous neuronal activity in the brain~\cite{seizure_def}.  Epilepsy patients show no pathological signs of the disease during inter-seizure periods, however, the uncertainty with regards to the onset of the next seizure deeply affects the lives of the patients~\cite{fisher_impact_epilepsy}.  
 
-In~\cite{mormann_seizure_prediction} the authors posed the question whether characteristic features can be extracted from the continuous EEG signal that are predictive of an impending seizure.  If it were possible to reliably predict seizure occurrence then preventive clinical strategies would be replaced by patient specific proactive therapy such as reseting brain by electrical or other stimulation.  While clinical studies show early indicators for a pre-seizure state including increased cerebral blood flow, heart rate change, the research in seizure prediction is still not reliable for clinical use.
+In~\cite{mormann_seizure_prediction} the authors posed the question whether characteristic features can be extracted from the continuous EEG signal that are predictive of an impending seizure.  Many different approaches have been applied towards determining these features, such as frequency domain tools~\cite{bronzino_eeg,muthuswamy_spectral}, wavelets~\cite{hazarika_wavelet,murali_wavelet}, Markov processes~\cite{lytton_model_epilepsy}, autoregressive models~\cite{anderson_offline_ar,subasi_EEG_AR,chisci_real_time}, and artificial neural networks~\cite{liu_artificial_neural}.  If it were possible to reliably predict seizure occurrence then preventive clinical strategies would be replaced by patient specific proactive therapy such as reseting brain by electrical or other stimulation.  While clinical studies show early indicators for a pre-seizure state including increased cerebral blood flow, heart rate change, the research in seizure prediction is still not reliable for clinical use.
 
-In general approaches to seizure prediction problem share several common steps including processing of multichannel EEG signals (i) discretize the time series into sliding windows with a constant number and overlapping epochs (ii) to extract sub-frequencies, to analyze the signal in frequency and/or time domain using (e.g., using wavelength transformation~\cite{acar_seizure_localization}), (iii) extract features either directly from the signal or from transformations.  These featues can be univariate computed on each EEG channel separately or bivariate computed  between two or more EEG channels they can be linear or nonlinear (e.g.,~\cite{mormann2005predictability}.  A list of features used in characterization of epileptic seizure dynamics can be found in recent studies~\cite{paivinen2005epileptic,mormann2005predictability,van2005detecting}.
+Most general approaches to seizure prediction problem share several common steps including processing of multichannel EEG signals (i) discretize the time series into sliding windows with a constant number and overlapping epochs (ii) to extract sub-frequencies, to analyze the signal in frequency and/or time domain using (e.g., using wavelength transformation~\cite{acar_seizure_localization}), (iii) extract features either directly from the signal or from transformations.  These featues can be univariate computed on each EEG channel separately or bivariate computed  between two or more EEG channels they can be linear or nonlinear (e.g.,~\cite{mormann2005predictability}.  A list of features used in characterization of epileptic seizure dynamics can be found in recent studies~\cite{paivinen2005epileptic,mormann2005predictability,van2005detecting}.
 
-A particular bivariate EEG feature, which captures  brainwave synchronization patterns, is shown to be an important one to differentiate interictal, preictal and ictal states~\cite{vanquyen_ictogenesis,levan_preictal}.  In particular, it is  suggested that interictal period is characterized by moderate synchronization at large frequency bands while  preictal period is marked by a decrease in the beta range synchronization between the epileptic focus and other brain areas, followed by a subsequent hypersynchronization at the seizure onset~\cite{mirowski_seizure_prediction_classification}.
+A particular bivariate EEG feature, which captures  brainwave synchronization patterns, has been shown to be important in differentiating interictal, preictal and ictal states~\cite{vanquyen_ictogenesis,levan_preictal}.  In particular, it is  suggested that the interictal period is characterized by moderate synchronization at large frequency bands while the pre-ictal period is marked by a decrease in the beta range synchronization between the epileptic focus and other brain areas, followed by a subsequent hypersynchronization at the time of the onset of the seizure~\cite{mirowski_seizure_prediction_classification}.
 
-Recently there has been increasing focus in analyzing EEG recordings by building a {\em synchronization graph} that enable characterization of the pairwise correlations between electrodes using graph theoretical features over time~\cite{bullmore2009complex,stam2012organization}.  In the spatio-temporal EEG  graphs, {\em nodes}~(vertices) represent the EEG channels and the {\em edges}~(links) represent the level of  neuronal synchronization between the different regions of the brain.  This approach has been exploited in the analysis of various neuropsychiatric diseases including schizophrenia and autism, dementia, and epilepsy~\cite{stam2012organization}.  Within epilepsy research,  evolution  of certain  graph  features over time revealed better understanding of the interactions  of the brain regions and the seizures.  For instance, Schindler et. al. analyzed the change in path lengths and clustering coefficients to highlight the evolution of seizures on epileptic patients~\cite{schindler2008evolving}, Kramer et. al.  considered  the  evolution  of  local graph features including betweenness centrality to explain the coupling of brain signals at seizure onset~\cite{kramer2008emergent}, and Douw et. al. recently showed epilepsy in glioma patients was attributed to the theta band activity in the brain~\cite{douw2010epilepsy}.  In~\cite{mahyari_tensor_brain} authors independently suggest a similar approach that combines tensor decompositions with graph theory.
-In  this paper, we continue studying synchronization graphs  and introduce new features as the early indicators of a seizure onset.
+Recently there has been increasing focus in analyzing EEG recordings by building a {\em synchronization graph} that enable characterization of the pairwise correlations between electrodes using graph theoretical features over time~\cite{bullmore2009complex,stam2012organization}.  In the spatio-temporal EEG  graphs, {\em nodes}~(vertices) represent the EEG channels and the {\em edges}~(links) represent the level of  neuronal synchronization between the different regions of the brain.  This approach has been exploited in the analysis of various neuropsychiatric diseases including schizophrenia and autism, dementia, and epilepsy~\cite{stam2012organization}.  Within epilepsy research,  evolution  of certain  graph  features over time revealed better understanding of the interactions  of the brain regions and the seizures.  For instance, Schindler et. al. analyzed the change in path lengths and clustering coefficients to highlight the evolution of seizures on epileptic patients~\cite{schindler2008evolving}, Kramer et. al.  considered  the  evolution  of  local graph features including betweenness centrality to explain the coupling of brain signals at seizure onset~\cite{kramer2008emergent}, and Douw et. al. recently showed epilepsy in glioma patients was attributed to the theta band activity in the brain~\cite{douw2010epilepsy}.  In~\cite{mahyari_tensor_brain} authors independently suggest a similar approach that combines tensor decompositions with graph theory.  In  this paper, we continue studying synchronization graphs  and introduce new features as the early indicators of a seizure onset.
 
-The organization of the paper is as follows: in Section~\ref{sec:method}, we describe the epileptic EEG dataset~\ref{sec:eeg_data}, methodology to construct EEG synchronization graphs~\ref{sec:graph_construct}, and the computation of global and local features on these graphs~\ref{sec:graph_feats}.  In Section~\ref{sec:seizure_predict_method}, we describe the seizure prediction method.  in Section~\ref{sec:results} we present results for seizure prediction.  Finally, we provide an overview, discuss the results, and list extensions to this study, in Section~\ref{sec:discuss}.
+Since the EEG signals are continuously recorded, they can be represented as a time-series, and analyzed using time-series forecasting methods.  The objective of time-series forecasting is to use equally spaced past and current observations to predict future values, specifically in this case to predict the epileptic seizure, while minimizing the error between the actual value and the predicted value.  {\em Autoregressive} models (AR) are commonly used tools for time-series prediction, and have been used to capture the spatio-temporal properties of  EEG signals~\cite{anderson_offline_ar,subasi_EEG_AR}.  We further improve on the AR model by using {\em Transfer Learning}~\cite{transfer_learning_survey} to learn the best forecast operator for a particular EEG recording from other EEG recordings.  Transfer learning is a general form of learning such that there need not be any similarity in the distributions of the training and testing data.  In our context, transfer learning does not require the past values and future values of the output variable to be correlated.  In addition, transfer learning is particularly useful when data obtained from a noisy experiment, or partial data, can be supplemented by clean data from a different experiment.
+
+The two main contributions of this work are as follows: (i) bridging the two concepts of AR modeling and synchronization graphs by constructing an AR$(1)$ model on the features extracted from the time-evolving EEG synchronization graphs,  and (ii) introducing the concept of transfer learning to improve the predictions of the AR$(1)$ model.
+
+The organization of the paper is as follows: in Section~\ref{sec:method}, we describe our methodology starting with the epileptic EEG dataset, initial noise removal, procedure to construct EEG synchronization graphs and extract features from the graph, feature selection method based on quadratic programming, transfer learning on the features, and using anomaly detection as a means for seizure prediction.  In Section~\ref{sec:results} we present the results for seizure prediction.  We discuss the results in Section~\ref{sec:results}, and provide an overview and list possible extensions to this study, in Section~\ref{sec:discuss}.
 
 \section{Methodology} \label{sec:method}
 
@@ -55,15 +83,17 @@ Our dataset consists of scalp EEG recordings of $26$ seizures from $11$ patients
 One patient has one $30$ minute recording, two patients have two $30$ min recordings, one patient has three $30$ min recordings, one 
 patient has single $60$ minute recording, three patients have two $60$ minute recordings, two patients have three $60$ minute recordings, and one patient has five $60$ minute recordings.  The recordings include sufficient \mbox{pre-ictal} and \mbox{post-ictal} periods for the  analysis. Two of the electrodes ($A_1$  and $A_2$) were unused and  $C_z$ electrode was used for referential montage that yielded \mbox{18-channel} EEG
 recordings.  A team of doctors diagnosed the initiation and the termination of each seizure and reported these periods as the ground truth for our
-analysis.  An example of such a recording can be found in Fig.2 in~\cite{smith_eegrecording}.  Seizures were $73.81$ seconds long on average and their standard deviation was $52.42$ seconds.
+analysis.  An example of such a recording can be found in Fig. 2 in~\cite{smith_eegrecording}.  Seizures were $73.81$ seconds long on average and their standard deviation was $52.42$ seconds.
+
 \begin{table}[htdp]
 \caption{Patient Types. Almost all the patients (except one patient) exhibited hippocampal sclerosis (HS).  
 There are two types of lateralizations in HS: left (L) and right (R).  One patient (IY) 
 exhibited cortical dysplasia (CD).}
+\renewcommand{\arraystretch}{0.9}
 \begin{center}
 \begin{tabular}{ccc}
 	Patient & Pathology & Lateralization\\
-	\hline \hline
+	\hline
 	IY&CD&R\\
 	OB&HS&R\\
 	BMI&HS&R\\
@@ -80,25 +110,24 @@ exhibited cortical dysplasia (CD).}
 \label{tab:patient_types}
 \end{table}
 
-\subsection{Initial Data Processing -- Low Rank Approximation}
+\subsection{Initial Noise Removal -- Reduced Rank Approximation}
+As an initial processing step, we remove noise from the EEG signal by creating a reduced rank approximation of the signal.  We start by computing the Singular Value Decomposition (SVD) of the EEG signal.  Let $\mX[i,m]$ denote the recorded EEG signal, where $i\in\{1,\ldots,18\}$ represents the index for the $i$th electrode and $m\in\left[1,\ldots,f_s\times M\right]$ represents the time index, $f_s$ represents the sampling frequency, and $M$ is the duration of the recording in seconds.  Sampling frequency, $f_s$, is either $200$ Hz or $400$ Hz.  We find the number of singular vectors required to represent $95\%$ of the variance in the data.  This reduced number of singular vectors is taken as the reduced rank $r$ of the EEG signal.  We then construct the reduced rank EEG signal $X_r$ by post-multiplying with the product of the right singular vector $V$ and its transpose: $X_r = X\times(V_r \times V_r^T)$.
 
 \subsection{Construction of EEG Synchronization Graphs} \label{sec:graph_construct}
-Let $\mX[i,m]$ denote the recorded EEG signal, where $i\in\{1,\ldots,18\}$ represents the index for the $i$th electrode and $m\in\left[1,\ldots,f_s\times M\right]$ represents the time index, $f_s$ represents the sampling frequency, and $M$ is the duration of the recording in seconds.  Sampling frequency, $f_s$, is either $200$ Hz or $400$ Hz.  We constructed epochs of equal lengths with $20\%$ overlap between the  preceding and following epochs.  The number of epochs $N$ is equal to $1.25M/L$, where $L$ is the duration of the epoch in same time units.
+For the signal $\mX[i,m]$, we constructed epochs of equal lengths with an overlap of $20\%$ between the  preceding and following epochs.  The number of epochs $N$ is equal to $1.25M/L$, where $L$ is the duration of the epoch in same time units.
 
-Given the nature of these spatio-temporal recordings, we consider constructing {\em time-evolving EEG Synchronization Graphs} on the EEG
-datasets.  A graph is constructed for each epoch.  The {\em nodes} represent the EEG electrodes and the {\em edges} represent a closeness relationship between the nodes in a given epoch.  The main goal sought in the time-evolving EEG synchronization graphs is the ability to sense both the spatial and temporal changes in the network, yielding measures of change for the mining. 
+Since the EEG recordings contain both temporal and spatial information, we construct {\em time-evolving EEG Synchronization Graphs} on the EEG datasets.  A synchronization graph is constructed for each epoch, giving an indication of the spatio-temporal correspondence between electrodes - these relationships can then be utilized to obtain changes in the network by identifying descriptive features.  The {\em nodes} represent the EEG electrodes and the {\em edges} represent a closeness relationship between the nodes in a given epoch.
 
-The selection of epoch length is significant in both the time-domain and frequency-domain analysis techniques.  While longer epochs provide
-better frequency resolution, too lengthy epochs may not be stationary~\cite{vandeVelde:eeg_recordings} and not allow rapid detections of changes in the network~\cite{Levy:eeg_pow_spect_1986,Levy:eeg_pow_spect_1987}.  Therefore, shorter epoch lengths are generally preferred.  However, too short epoch lengths may not allow the generation of meaningful graphs for mining.  We use an epoch length of $5$ seconds.  Note that if a wavelet-domain-based measure is employed for the construction of the time-evolving graphs, these effects are reduced or eliminated.  However, as the range of explored frequencies must be arbitrarily  defined prior to the wavelet  analysis, wavelet  domain techniques do not allow the simultaneous exploration of the whole range of the EEG frequency spectrum.
+Epoch length selection is an important criterion - longer epoch lengths can lead to better frequency resolution while not being able to capture instantaneous changes to the graph~\cite{vandeVelde:eeg_recordings,Levy:eeg_pow_spect_1986,Levy:eeg_pow_spect_1987}.  Very short epoch lengths might lead to issues related to generation and mining of sparse graphs.  Thus, a compromise is necessary.  We use an epoch length of $5$ seconds.  These issues can be mitigated via use of wavelet-domain-based measure for constructing the time-evolving graphs.  However, wavelet domain techniques fall short in exploring the entire range of the EEQ frequency spectrum as the range of frequencies must be specified prior to the analysis.
 
-For purposes of illustration, we construct simple time-evolving graphs on the EEG recording shown in Fig.~\ref{fig:ep_graphs}.  The graph edges are established based on the \mbox{pair-wise} relationships between the epoch data.  Specifically, an edge between two distinct nodes $i$ and $k$,  where $i,k\in\{1,\dots, 18\}$, and $i\neq  k$, is established if the pair-wise distance for the $n$th epoch, $d_{i,k}^{n}$, is less than the threshold~$\tau$.  A parametric search is performed to find optimal values for the threshold~$\tau$.  Further information about the search performed on various parameters to determine optimal values is provided in Section~\ref{sec:results}.
+A sample time-evolving graph on an EEG recording is shown in Fig.~\ref{fig:ep_graphs}.  The pair-wise relationships between the electrodes during an epoch are used to construct the graph edges.  If the pair-wise distance between two nodes $i$ and $k$, where $i,k\in\{1,\dots, 18\}$, and $i\neq  k$, for the $n$th epoch, given as $d_{i,k}^{n}$ is less than a specified threshold, $\tau$, then an edge is inserted into the graph between the two nodes.  Note that smaller threshold values seek higher correlation between the electrodes, thereby yielding sparser graphs.  Similarly, higher threshold  values would establish an edge even if there is small correlation between the data, thereby yielding denser graphs.  For our analysis, we performed a parametric search and found the best value of $\tau$ to be $1$. 
 
 \begin{figure}[htb]
 \centering
 \ifthenelse{\putimage = 1}{
-\subfigure[Pre-ictal]{\includegraphics[width=0.4\columnwidth]{\FigDir{pre_ictal.eps}}}
-\subfigure[Ictal]{\includegraphics[width=0.4\columnwidth]{\FigDir{ictal.eps}}}
-\subfigure[Post-Ictal]{\includegraphics[width=0.4\columnwidth]{\FigDir{post_ictal.eps}}}
+\subfigure[Pre-ictal]{\includegraphics[width=0.3\columnwidth]{\FigDir{pre_ictal.eps}}}
+\subfigure[Ictal]{\includegraphics[width=0.3\columnwidth]{\FigDir{ictal.eps}}}
+\subfigure[Post-Ictal]{\includegraphics[width=0.3\columnwidth]{\FigDir{post_ictal.eps}}}
 }
 \hfill
 \caption{\bf Sample  EEG Synchronization Graphs for pre-ictal,  ictal, and post-ictal epochs.}  It is clearly seen that the ictal period has more coherence between different regions of the brain. 
@@ -109,7 +138,6 @@ Several synchronization measures have been proposed as plausible options for $d_
 \bea  
 PLI_{i,k}(n)  &=&  \frac{1}{L f_s}  \left\rvert\sum_{m=1}^{L f_s}\mbox{sgn}\lc
 \vphi_i^{n}(m) -\vphi_k^{n}(m)\rc\right\rvert \eea  where $\vphi_{i}^{n} = \arctan({\frac{\hat{\vx}_{i}^{n}}{\vx_{i}^{n}}})$ is the angle of the Hilbert transform $\hat{\vx}_{i}^{n}$ of the signal $\vx_{i}^{n}$.  
-Note that smaller threshold values seek higher correlation between the electrodes, therefore yield sparser graphs.  Similarly, higher threshold  values would establish an edge even if there is small correlation between the data, therefore would yield denser graphs.
 
 \subsection{Feature Extraction from EEG Synchronization Graphs} \label{sec:graph_feats}
 We extract $26$ features from the EEG  graph for each epoch.  These features quantify the compactness, clusteredness, and uniformity of
@@ -117,12 +145,7 @@ the graph.  Apart from these graph-based features, we compute two spectral featu
 
 We also extracted \textbf{*******NIVAS PLACE-HOLDER FOR CHANGE-POINT DETECTION FEATURES, REFER TABLE FOR DESCRIPTION OF FEATURES}
 
-{\em Compactness} of a graph is measured by features such as {\em  average eccentricity},  {\em diameter},  {\em radius}, and {\em 
-number of central points} that are based on the path distances between the nodes within the graph.  The {\em clusteredness} of a graph is
-measured by features such  as {\em average clustering coefficient} and {\em number of  connected components} that are based  on how connected the  nodes  and  their  neighbors  with respect  to  each  other.  In addition, we also extract {\em spectral graph features} such as {\em
-spectral radius} and {\em spectral gap} using the eigenvalues of the adjacency, Laplacian, and normalized Laplacian matrices that reveal
-additional clusteredness and  compactness properties about the graphs.  A  complete  list  of  the  features  used  in  this  work  and  their
-definitions is listed in Table~\ref{tab:features}.
+In subsequent text, we refer to the feature matrix as $D$.  A complete list of the features used in this work and their definitions is listed in Table~\ref{tab:features}.  For further information regarding the features, please refer to~\cite{bilgin_multiscale}. 
 
 \begin{table}[htb]
 \caption{Description of EEG global graph features.}\label{tab:features}
@@ -173,18 +196,92 @@ the number of nodes\\
 \end{tabular}
 \end{table}
 
-\subsection{Quadratic Programming Feature Selection}
-\textbf{******* NIVAS PLACE-HOLDER FOR QPFS}
+\subsection{Transfer Learning on Feature Data}
+We apply an autoregressive model of order 1 (AR1) to our $epochs \times features$ data.  For an AR(1) model the output at time~$t$ is only dependent on the values of the time-series at time $t-1$.  Expressed differently, an AR(1) model is a Markov chain where the next state is dependent on the current state, and none of the states that preceded the current state.  We define every input variable~$z_i$ at time~$t$ in terms of all the input variables at time~$t-1$ as follows:
+\begin{equation} \label{lin_reg}
+z_i^t = \rho_{0i} + \rho_{1i} z_1^{t-1} + \rho_{2i} z_2^{t-1}+\ldots+\rho_{mi} z_{mt} + \epsilon_t
+\end{equation}
+where $\rho_{ij}$ are the linear regression weights assigned to the lagged time-series input variables.  In matrix format, we would write this as $[Z]_{1}^{t} = \Rho*[1,Z]_{0}^{t-1}$, where the notation $[A]_a^b$ is the range of time-steps for $A$.  Thus, using an AR(1) model we can come up with the best estimate $\hat\Rho$ for $\Rho$.  We further improve our estimates for the future values predicted by an AR(1) model by incorporating concepts from transfer learning.  
 
-\subsection{Transfer Learning on Features Extracted from EEG Synchronization Graphs and EEG signal}
+Since our data set consists of multiple EEG patient recordings, we can utilize this corpus to predict future values of the features for a particular recording.  Given a feature data set $D=z_i^t$ and the feature transfer set, $D_1=\hat{z}_i^t$, where $z_i^t$ are the input variables, let the autoregressive parameters for $D$ and $D_1$ be $\Rho$ and $\Rho_1$ respectively.  We can then solve an objective function of the form
+\begin{equation}
+argmin\{||[Z]_{t-1}^0*\Rho - [Z]_{t}^{1}||_F^2 + \lambda||\Rho - \Rho_1||^2_F\} \;,
+\end{equation}
+where $\lambda$ is the Tikhonov regularizer and decides the contribution of the transfer set in improving the estimates of future values predicted by $D$.  The first term is the objective function for autoregression, and the second term is the additional objective function for the transfer learning.  As more data is obtained for $D$, the value of $\lambda$ is reduced because now the core set is getting better at predicting its own future values.  To test our estimates, we use the following split between the training and testing data.  First, we split $D$ into training ($TR$) and testing ($TE$) sets.  Within the training set, we create a further split thereby creating a training prime ($TR'$) and validation ($Val$) sets.  The idea behind this split is to train our AR(1) model on $TR'$, and then use the transfer set to test on $Val$.  Then, we retrain the model using the learned parameters on the entire training set $TR$ and finally test on $TE$. 
+
+\subsection{Determining The Significance of Features}
+The computed features were motivated by discussions with the subject matter experts, with the view of casting a meaningful but wide net to capture  attributes of an epileptic seizure. However, this doesn't strictly preclude the possibility that, with respect to the phenomenon of epileptic seizure, certain features may be redundant, or low in predictive importance. Therefore, we quantify the predictive significance of the features in a natural but effective way, and score the features to maximize predictive importance and minimize redundancy using the method in~\cite{quadprog_featsel}, which we summarize here.
+
+\subsubsection{Measuring Redundancy}
+Our notion of redundancy arises naturally from the interpretation of brain activity as a stochastic process, whence the usual notion of linear dependence is replaced with the notion of statistical correlation. Specifically, suppose the data matrix, $D$, spanning $t$ epochs, is $t \times n$, with $n$ features, $z_i, 1 \leq i \leq n, z_i \in \rl^t$. We define, the correlation matrix, $Q \in \rls{n, n}$, element-wise, where $Q(i, j)$ is the pearson correlation coefficient between the feature vectors $z_i$ and $z_j$:
+\[ Q(i, j) = \frac{z_i ^T z_j}{\norm{z_i}\norm{z_j}}.  \]
+The quadratic form $x^T Q x$ thus has the natural interpretation of yielding the sample-covariance of a compound feature, with coefficients contained in $x$, which is the notion of redundancy we wish to minimize.
+
+\subsubsection{Measuring Predictive Importance}
+We first recall that the activity of the brain at time $t$ is completely captured by $d^t$. We define the predictive importance, $f_i$, of a feature, $z_i$, as the r.m.s. influence of $z_i ^t$ on $z_j ^{t+1}, 1 \leq j \leq n$, measured by the coefficients in the forecast operator corresponding to $z_i$. Formally, let $\Psi \in \rls{n, n+1}$ be the forecast operator. Then our best prediction of $d^{t+1}$ is $\tilde{d}^{t+1}$ where
+\[ \tilde d^{t+1} = d^t \Psi ^T. \]
+The influence, $p_i (j)$, of feature $z_i$ on $z_j$, contained in $p_i \in \rl^n$, may be determined by predicting via $\Psi$ using its indicator vector, $e_i$:
+\[ p_i = e_i \Psi^T,  \]
+whence the r.m.s. influence, $f_i$, of $z_i$ is simply 
+\[ f_i = \norm{p_i} = \norm{\Psi_i}, \]
+the column-norm of the forecast operator corresponding to column $i$. We define $f \in \rl^n$ such that $f_i = \norm{\Psi_i}$, as the predictive importance vector. 
+
+\subsubsection{Optimizing Redundancy and Predictive Importance}
+We note that we may indicate features that maximize predictive importance and minimize redundancy by solving 
+\[ \bar{x} = \arg \min x^T Q x - f^T x; \quad x \geq 0, \quad \sum_i x_i  = 1, \]
+where the constraints arise from forcing the resulting vector to be a distribution, from which we may omit an appropriately sized tail, should we choose to do so. However, the magnitudes of entries in $Q, f$ may be vastly different for very similar data - for example, a data matrix $aD$ would have the same correlation matrix as $D$, but its predictive importance vector would be $a$ times as large. To make the objective function scale invariant, we normalize $f$ to obtain
+\[ \hat{f} = f/\norm{f}_{\infty}. \]
+
+Finally, to effect a meaningful trade-off between minimizing redundancy and maximizing predictive importance, we take a convex combination of the objective functions in both optimization problems:
+\[ q(x) = (1 - \a) x^T Q x - \a  f^T x, \]
+where $\a$ is chosen, as in~\cite{quadprog_featsel} as 
+\[ \a  = \frac{\sum_{i, j} Q(i, j) /n^2}{\sum_{i, j} Q(i, j)/n^2 + \sum_k f_k / n}. \]
+We solve the resulting optimization problem:
+\[ x^* = \arg \min q(x); \quad s.t. x \geq 0, \quad \sum_i x_i = 1 \]
+to obtain an importance-distribution over the features.
 
 \subsection{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly} \label{sec:seizure_predict_method}
 \textbf{******NIVAS PLACE-HOLDER FOR LEARNING ON REGULAR SIGNAL }
+
 \section{Results} \label{sec:results}
+We present results for the Quadratic Programming Feature Selection algorithm, determining the best forecast operator, and a comparison of the performance of our seizure prediction algorithm on basic autoregression vs. with the addition of transfer learning.
 
-\subsection{Seizure Prediction}
+\subsection{Quadratic Programming Feature Selection Results}
+We ran the QPFS algorithm on the data sets, and selected all the features that were returned by the algorithm as discriminating features.  These features are the following (i) Average Degree, (ii) Diameter of graph, (iii) Radius of graph, (iv) Average Path Length, (v) Giant Connected Component Ratio, (vi) Number of Connected Components, (vii) Percentage of Isolated Points, (viii) Laplacian Trace, (ix) Mean of change in EEG signal.
 
-\section{Discussion and Conclusions} \label{sec:discuss}
+\subsection{Best Predictor Operator for Seizure Prediction}
+
+\begin{figure}[htbp]
+\centering
+\ifthenelse{\putimage = 1}{
+\subfigure[$n \times (n+1)$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{DAK_3_nbyn+1.eps}}}
+\subfigure[$n \times (n+1)$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{OB_1_nbyn+1.eps}}}
+\subfigure[$n \times 10$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{DAK_3_nby10.eps}}}
+\subfigure[$n \times 10$ Forecast Operator]{\includegraphics[width=0.45\columnwidth]{\FigDir{OB_1_nby10.eps}}}
+}
+\hfill
+\caption{Comparison of the $n \times 10$ and $n \times (n+1)$ forecast operators.  The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}
+\label{fig:forecast_operator}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\ifthenelse{\putimage = 1}{
+\subfigure[AR(1) model]{\includegraphics[width=0.45\columnwidth]{\FigDir{FZE_4_ar.eps}}}
+\subfigure[AR(1) model]{\includegraphics[width=0.45\columnwidth]{\FigDir{IP_1_ar.eps}}}
+\subfigure[AR(1) model with transfer learning]{\includegraphics[width=0.45\columnwidth]{\FigDir{FZE_4_tl.eps}}}
+\subfigure[AR(1) model with transfer learning]{\includegraphics[width=0.45\columnwidth]{\FigDir{IP_1_tl.eps}}}
+}
+\hfill
+\caption{Comparison of the AR(1) model with the AR(1) model enhanced by transfer learning.  The epoch at which the seizure is detected is shown in blue, the extremities of the seizure region are marked in red.}
+\label{fig:ar_vs_transfer}
+\end{figure}
+
+\subsection{Autoregression vs transfer learning}
+
+\section{Conclusions and Future Work} \label{sec:discuss}
+Mention: advanced noise removal
+transfer learning based on similarity between patients
 
 \bibliographystyle{abbrv}
 \bibliography{\BibDir/epilepsy}

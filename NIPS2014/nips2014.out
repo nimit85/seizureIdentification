@@ -1,12 +1,17 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Methodology}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Epileptic EEG Data Set}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Initial Data Processing \205 Low Rank Approximation}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Initial Noise Removal \205 Reduced Rank Approximation}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Construction of EEG Synchronization Graphs}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{Feature Extraction from EEG Synchronization Graphs}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{Quadratic Programming Feature Selection}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.6}{Transfer Learning on Features Extracted from EEG Synchronization Graphs and EEG signal}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.7}{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly}{section.2}% 9
-\BOOKMARK [1][-]{section.3}{Results}{}% 10
-\BOOKMARK [2][-]{subsection.3.1}{Seizure Prediction}{section.3}% 11
-\BOOKMARK [1][-]{section.4}{Discussion and Conclusions}{}% 12
+\BOOKMARK [2][-]{subsection.2.5}{Transfer Learning on Feature Data}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Determining The Significance of Features}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Measuring Redundancy}{subsection.2.6}% 9
+\BOOKMARK [3][-]{subsubsection.2.6.2}{Measuring Predictive Importance}{subsection.2.6}% 10
+\BOOKMARK [3][-]{subsubsection.2.6.3}{Optimizing Redundancy and Predictive Importance}{subsection.2.6}% 11
+\BOOKMARK [2][-]{subsection.2.7}{Seizure Prediction by Learning Normal Signal and Identifying Seizure as an Anomaly}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{Results}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{Quadratic Programming Feature Selection Results}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{Best Predictor Operator for Seizure Prediction}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{Autoregression vs transfer learning}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Conclusions and Future Work}{}% 17
